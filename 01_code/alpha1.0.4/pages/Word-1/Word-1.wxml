@@ -1,0 +1,46 @@
+<!--Word-1.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="head">
+  <!--程序的头-->
+  <view class="input">
+    <!--搜索框-->
+    <icon type="search" size="25" style="padding-left: 7px;"></icon>
+    <input type="text" placeholder="输入汉字(支持多个汉字)" confirm-type="search" bindinput="getInput" value="{{val}}"/>
+    <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+  </view>
+</view>
+
+<view class="body">
+  <view class="result">
+    <!--搜索结果-->
+    <view class="result-1">
+      <!--结果1-->
+      <view style="text-align: center; font-size: 25px;">word</view>
+      <view style="margin-left: 15px; font-size: 25px; display: flex; flex-direction: row; align-items: center;">
+        <view>音</view>  <!--固定不变的-->
+        <image src="/icon/07_show.png" mode="widthFix" class="iconImage"></image>
+      </view>
+        <view style="display: flex; justify-content: space-around; flex-direction: row; " class="pron-wrap">
+          <view style="font-size: 16px;">方言点</view>
+          <view style="font-size: 16px;">IPA</view>
+          <view style="font-size: 16px;">吴拼</view>
+          <view style="font-size: 16px;">发音</view>
+        </view>
+
+      <view style="margin-left: 15px; margin-top: 12px; font-size: 25px;display: flex; flex-direction: row; align-items: center;" class="mean">
+        <view>释义</view>  <!--固定不动的-->
+        <image src="/icon/07_show.png" mode="widthFix" class="iconImage"></image>
+      </view>
+        <view style="font-size: 16px; margin-left: 15px; margin-right: 15px;">
+          <view style="word-wrap: break-word; word-break: break-all;">mean</view>
+        </view>
+
+      <view style="margin-left: 15px; margin-top: 12px; font-size: 25px; display: flex; flex-direction: row; align-items: center;" class="map">
+        <view>地图(开发中)</view>  <!--固定不动的-->
+        <image src="/icon/07_show.png" mode="widthFix" class="iconImage"></image>
+      </view>
+        <view style="font-size: 16px; margin-left: 15px;">空</view>
+    </view> 
+  </view>
+</view>

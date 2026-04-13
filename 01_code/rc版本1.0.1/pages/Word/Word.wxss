@@ -1,0 +1,50 @@
+/*Word.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.content {  /*“内容“的父级*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20vw;
+}
+
+.content image {  /*图片样式*/
+  width: 31vw;
+  height: 31vw;
+}
+
+.unrealInput {  /*要进入二级菜单的搜索框样式*/
+  width: 90.4vw;
+  height: 40px;
+  border-radius: 6px;
+  padding-left: 7px;
+  display: flex; 
+  align-items: center; 
+  flex-direction: row; 
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.features{  /*功能集文字的总样式*/
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+}
+
+.toneGenerationOuter {  /*变调生成器功能的父级*/
+  border-radius: 6px;
+  background-color: white;
+}
+
+.toneGenerationInter{   /*变调生成器功能的子级*/
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  padding-top: 8px; 
+  padding-bottom: 8px; 
+  padding-left: 5vw; 
+  padding-right: 5vw; 
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,81 @@
+<!-- Word.wxml -->
+<!-- written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China -->
+<view style="display: flex; flex-direction: column; ">
+  <view style="display: flex; flex-direction: row; margin-top: 5vw;">
+    <view class="input">
+      <!-- 搜索框 -->
+      <icon type="search" size="25" style="padding-left:7px;"></icon>
+      <input type="text" maxlength="9" placeholder="请输入二字三字词汇" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+      <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+    </view>
+    <view class="searchButton" bindtap="enterInput">
+      <view style="display: flex; flex-direction: column; align-items: center; padding-top: 10px; padding-bottom: 10px;">生成</view>
+    </view>
+  </view>
+  <view style="width: 85vw; border-top: 1px solid #979797; margin-top: 2vw; margin-left: 5vw;"></view>
+  <!-- 分隔线 -->
+  <view>
+    <!-- 锁定地区字样 -->
+    <view style="margin-left: 5vw; margin-top: 5px; display: flex; flex-direction: row; align-items: center;">
+      <text style="font-size: 16px; font-weight: bold;">锁定搜索</text>
+      <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{countyName}}</text>
+      <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{townName}}</text>
+    </view>
+    <!-- 以下是一大堆按钮 -->
+    <view style="display: flex; flex-direction: row; margin-top: 2px;">
+      <!-- 第一行按钮 -->
+      <view class="songjiang">
+        <!-- 松江按钮 -->
+        <view class="buttonStyle">松江</view>
+      </view>
+    </view>
+    <!-- 以下都是县级地名radio -->
+    <view>
+      <view wx:if="{{songjiangValue}}" class="radioPanel">
+        <!-- 松江中的radio -->
+        <radio-group class="radioGroupStyle" name="songjiangRadio" bindchange="songjiangChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_all" checked="{{songjiang_all_checked}}">
+                <text class="fontButton">全境</text>
+              </radio>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_songjiangzhen" checked="{{songjiang_songjiangzhen_checked}}">
+                <text class="fontButton">松江镇</text>
+              </radio>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+  <view style="width: 85vw; border-top: 1px solid #979797; margin-top: 5px; margin-left: 5vw; "></view>
+  <!-- 分隔线 -->
+  <!-- 解决数据没有查询到 -->
+  <view style="display: flex; justify-content: flex-start; margin-top: 5px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+    <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+  </view>
+  <!-- 显示单字音调 -->
+  <view wx:if="{{mainPanel}}">
+
+    <!-- 调值搜索结果页面 -->
+    <view class="Tonebody">
+      <view class="multiToneResult" wx:for="{{multiToneList}}" wx:key="multiToneList">
+        <!-- 框 -->
+        <view>
+          <view>
+            <!-- 标题栏的两个组件 -->
+            <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.title}}</text>
+            <text style="font-size: 12px; color: rgba(0, 0, 0, .50);padding-left: 10px; font-family: 'Times New Roman',Times, serif;" user-select="true">{{item.address}}</text>
+          </view>
+          <view style="margin-top: 2px;">
+            <text style="font-family: 'Times New Roman', Times,serif;" user-select="true">{{item.tone}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

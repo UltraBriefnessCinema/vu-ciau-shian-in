@@ -1,0 +1,353 @@
+/*Vocabulary-1.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 5vw;
+  margin-top: 5vw;
+}
+
+.searchButton {
+  width: 13.6vw;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.searchButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 74.13vw;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.input input {
+  padding-left: 4px;
+  padding-right: 10px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+
+.radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 5px;
+}
+
+.searchContent_view_show {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContent_view_hide {
+  display: None;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.result {
+  padding-bottom: 10px;
+  margin-top: 5px;
+  width: 88.7vw;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.resultList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.titleAndPlace {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleAlign {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+}
+
+.titleContent {
+  font-size: 14px;
+  padding-top: 1px;
+}
+
+.fontButton {
+  font-size: 14px;
+}
+
+.buttonStyle{
+  font-size: 12px; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  padding-top: 4px; 
+  padding-bottom: 4px;
+}
+
+.BtnradioGroup{
+  display: flex; 
+  flex-direction: row; 
+  align-self: center;  
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  margin-left: 5px;
+}
+
+.radioLeftPosition{
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*以下为高级搜索>锁定地区下的所有按钮class以及active*/
+.shanghaiAll {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 3px;
+}
+
+.shanghaiAll :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.shanghaiShi {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.shanghaiShi :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.shanghaiXian {
+  width: 52px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.shanghaiXian :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.songjiang {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.songjiang :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jinshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jinshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.qingpu {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.qingpu :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.fengxian {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.fengxian :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chuansha {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chuansha :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.nanhui {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.nanhui :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jiading {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jiading :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.baoshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.baoshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chongming {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chongming :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.comprehensive {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.comprehensive :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.radioPanel {
+  width: 90vw; 
+  height: auto; 
+  background-color:white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  margin-left: 5vw; 
+  padding-top: 5px; 
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+.showHideButton{
+  background-color: white;
+  padding: 4px 4vw 4px 4vw;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.showHideButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}

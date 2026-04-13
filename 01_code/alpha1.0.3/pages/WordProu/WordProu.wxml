@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai-->
+<!--release 2022, 2 ,March-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="../../systemImage/logo.png" mode="widthFix"></image>
+    <text>字音查询</text>
+    <view class="input">
+      <input type="text" placeholder="输入汉字或吴拼(支持多个汉字)" confirm-type="search" />
+    </view>
+  </view>
+</view>  

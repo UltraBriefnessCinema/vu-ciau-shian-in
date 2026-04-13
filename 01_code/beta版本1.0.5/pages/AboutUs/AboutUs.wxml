@@ -1,0 +1,48 @@
+<!--AboutUs.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="/systemImage/logo.png" mode="widthFix"></image>
+    <text class="aboutUs" >微信公众号：沪郊乡音</text>
+
+    <scroll-view scroll-y="true">
+      <view class="content">
+      
+        <text style="font-size: 19px;font-weight: bold;">录入整理</text>
+        <text class="content-text" wx:for="{{inputSortList}}" wx:key="data">
+          <text user-select="true">{{item.input}}</text>
+        </text>
+
+        <text style="font-size: 19px; font-weight: bold; margin-top: 25px;">字表发音</text>
+        <text class="content-text" wx:for="{{pronuncationList}}" wx:key="pronuncation">
+          <text user-select="true">{{item.pronunciation}}</text>
+        </text>
+
+        <text style="font-size: 19px; font-weight: bold; margin-top: 25px;">界面设计</text>
+        <text class="content-text" wx:for="{{UiDesignList}}" wx:key="data">
+          <text user-select="true">{{item.uiDesign}}</text>
+        </text>
+
+        <text style="font-size: 19px; font-weight: bold; margin-top: 25px;">程序制作</text>
+        <text class="content-text" wx:for="{{programMakerList}}" wx:key="data">
+          <text user-select="true">{{item.programMaker}}</text>
+        </text>
+
+        <text style="font-size: 19px; font-weight: bold; margin-top: 25px;">特别感谢</text>
+        <text class="content-text" wx:for="{{programMakerList}}" wx:key="data">
+          <text user-select="true">{{item.Acknowledge}}</text>
+        </text>
+
+        <view style="font-size: 19px; font-weight: bold; margin-top: 25px;">
+          <text>参考文献</text>
+        </view>
+        <text class="content-text" wx:for="{{ChronicleList}}" wx:key="list">
+          <text user-select="true">{{item.data}}</text>
+        </text>
+        
+      </view>
+    </scroll-view>
+  </view>
+</view>  

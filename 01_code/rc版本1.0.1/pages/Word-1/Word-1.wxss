@@ -1,0 +1,313 @@
+/*Word-1.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5vw;
+}
+
+.searchButton {
+  width: 58px;
+  height: 40px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 4px;
+}
+  
+.searchButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 265px;
+  height: 40px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 5vw;
+}
+
+.input input {
+  padding-left: 4px;
+  padding-right: 10px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: flex-start; 
+  margin-top: 10px;
+}
+
+.result {
+  width: 38vw;
+  height: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.searchContent_view_show{
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContent_view_hide {  /*内容页隐藏*/
+  display: None;
+}
+
+.contentTitle{
+  padding-top: 8px; 
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.contentContent{
+  padding-top: 1px; 
+  font-size: 14px;
+}
+
+.showHideButton{
+  background-color: white;
+  padding: 4px 4vw 4px 4vw;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.showHideButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.buttonStyle{
+  font-size: 12px; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  padding-top: 4px; 
+  padding-bottom: 4px;
+}
+
+/*以下为锁定地区下的所有按钮class以及active*/
+.shanghaiAll {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 3px;
+}
+
+.shanghaiAll :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.shanghaiShi {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.shanghaiShi :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.songjiang {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.songjiang :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jinshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jinshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.qingpu {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.qingpu :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.fengxian {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.fengxian :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chuansha {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chuansha :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.nanhui {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.nanhui :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jiading {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jiading :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.baoshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.baoshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chongming {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chongming :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.radioPanel {
+  width: 90vw; 
+  height: auto; 
+  background-color:white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  margin-left: 5vw; 
+  padding-top: 5px; 
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+.fontButton {
+  font-size: 14px;
+}
+
+.radioLeftPosition{
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.BtnradioGroup{
+  display: flex; 
+  flex-direction: row; 
+  align-self: center;  
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  margin-right: 10px;
+}

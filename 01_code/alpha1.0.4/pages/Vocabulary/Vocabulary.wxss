@@ -1,0 +1,27 @@
+/*Vocabulary.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.content {  /*“内容“的父级*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content image {  /*图片样式*/
+  width: 228rpx;
+  height: 228rpx;
+  margin-top: 40%;
+  margin-bottom: 17.06rpx;
+}
+
+.unrealInput {  /*要进入二级菜单的搜索框样式*/
+  width: 88.7vw;
+  height: 40px;
+  border: 1px solid #979797;
+  border-radius: 6px;
+  padding-left: 7px;
+  display: flex; 
+  align-items: center; 
+  flex-direction: row; 
+  color: rgba(0, 0, 0, 0.5);
+}

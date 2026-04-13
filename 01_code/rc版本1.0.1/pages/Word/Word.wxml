@@ -1,0 +1,32 @@
+<!--Word.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="/systemImage/logo.png" mode="widthFix"></image>
+    <text style="font-size: 19px; margin-bottom: 10px; font-weight: bold; margin-top: 10px;">字音查询</text>
+    <navigator url="/pages/Word-1/Word-1">
+      <view class="unrealInput">
+        <!--点进此搜索框进入二级菜单-->
+        <icon type="search" size="25"></icon>
+        <view style="padding-left: 4px; font-size: 16px;">输入汉字或吴拼(支持多个汉字)</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view style="font-size: 20px; font-weight: bold; margin-top: 10px; margin-left: 5vw; margin-bottom: 5px;">功能集</view>
+
+<!--下面是导航到变调生成部分-->
+<view class="features">
+  <view class="toneGenerationOuter">
+    <navigator url="/pages/ToneGeneration/ToneGeneration">
+      <view class="toneGenerationInter">
+        <text style="font-size: 18px; font-weight: bold;">变调生成器</text>
+        <view style="width: 76.73vw; border-top: 1px solid #979797; margin-top: 5px; margin-bottom: 5px; padding-left: 15px;"></view>   <!--分隔线-->
+        <text style="font-size: 15px; color: rgba(0,0,0,0.5);">根据变调规则自动生成(以实际为准)</text>
+      </view>
+    </navigator>
+  </view>
+</view>

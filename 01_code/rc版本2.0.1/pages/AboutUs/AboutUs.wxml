@@ -1,0 +1,79 @@
+<!--AboutUs.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="/systemImage/logo.png" mode="widthFix"></image>
+    <text class="aboutUs">微信公众号：沪郊乡音</text>
+    
+    <!--展开全部，反选全部，合拢全部的panel-->
+    <view style="display: flex; flex-direction: row;">
+      <view class="showHideButton" bindtap="showAll">
+        <view>展开全部</view>
+      </view>
+      <view class="showHideButton" style="margin-left: 7.5vw; margin-right: 7.5vw;" bindtap="ReverseAll">
+        <view>反选全部</view>
+      </view>
+      <view class="showHideButton" bindtap="hideAll">
+        <view>合拢全部</view>
+      </view>
+    </view>
+
+    <scroll-view scroll-y="true">
+      <view class="content" style="margin-top: 5px;">
+        <view class="cardStyle" bindtap="introduceButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">小程序简介</view>
+          <view wx:if="{{introduceArea}}" class="content-text" wx:for="{{introduceList}}" wx:key="introduce">
+            <text user-select="true">{{item.introduce}}</text>
+          </view>
+        </view> 
+
+        <view class="cardStyle" bindtap="inputButton" style="margin-top: 5px;">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">录入整理</view>
+          <view wx:if="{{inputArea}}" class="content-text" wx:for="{{inputSortList}}" wx:key="data">
+            <text user-select="true">{{item.input}}</text>
+          </view>
+        </view>
+
+        <view class="cardStyle" style="margin-top: 5px;" bindtap="pronunciationButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">字表发音</view>
+          <view wx:if="{{pronunciationArea}}" class="content-text" wx:for="{{pronuncationList}}"wx:key="pronuncation">
+            <text user-select="true">{{item.pronunciation}}</text>
+          </view>
+        </view>
+
+        <view class="cardStyle" style="margin-top: 5px;"  bindtap="uiDesignButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">界面设计</view>
+          <view wx:if="{{uiDesignArea}}" class="content-text" wx:for="{{UiDesignList}}"wx:key="data">
+            <text user-select="true">{{item.uiDesign}}</text>
+          </view>
+        </view>
+
+        <view class="cardStyle" style="margin-top: 5px;"  bindtap="programMakerButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">程序制作</view>
+          <view wx:if="{{programMakerArea}}" class="content-text" wx:for="{{programMakerList}}"wx:key="data">
+            <text user-select="true">{{item.programMaker}}</text>
+          </view>
+        </view>
+
+        <view class="cardStyle" style="margin-top: 5px;" bindtap="AcknowledgeButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">特别感谢</view>
+          <view wx:if="{{AcknowledgeArea}}" class="content-text" wx:for="{{programMakerList}}"wx:key="data">
+            <text user-select="true">{{item.Acknowledge}}</text>
+          </view>
+        </view>
+        
+        <view class="cardStyle" style="margin-top: 5px;" bindtap="ChronicleButton">
+          <view style="font-size: 19px; font-weight: bold; text-align: center;">
+            <text>参考文献</text>
+          </view>
+          <view wx:if="{{ChronicleArea}}" class="content-text" wx:for="{{ChronicleList}}" wx:key="list">
+            <text user-select="true">{{item.data}}</text>
+          </view>
+        </view>
+        
+      </view>
+    </scroll-view>
+  </view>
+</view>  

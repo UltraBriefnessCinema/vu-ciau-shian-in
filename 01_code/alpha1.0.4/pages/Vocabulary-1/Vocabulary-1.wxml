@@ -1,0 +1,40 @@
+<!--Vocabulary-1.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="head">
+  <view class="input">
+    <!--搜索框-->
+    <icon type="search" size="25" style="padding-left: 7px;"></icon>
+    <input type="text" placeholder="输入词汇" confirm-type="search" bindinput="getInput" value="{{val}}"/>
+    <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+  </view>
+</view>
+
+<view class="middle">
+  <view class="radio">
+    <radio></radio>
+    <view>查词条</view>
+  </view>
+  <view class="radio">
+    <radio checked="true"></radio>
+    <view>查释义</view>
+  </view>
+</view>
+
+<view class="body">
+  <view class="result">
+    <!--搜索结果-->
+    <view class="resultList">
+      <view style="font-size: 16px;">word-1</view>
+      <image src="/icon/07_show.png" mode="widthFix" style="width: 22px; height: 22px;"></image>
+      <!-- <image src="/icon/08_overShow.png" mode="widthFix" style="width: 22px; height: 22px;"></image> -->
+      
+    </view>
+
+    <view class="resultList">
+      <view style="font-size: 16px;">word-2</view>
+      <image src="/icon/07_show.png" mode="widthFix" style="width: 22px; height: 22px;"></image>
+      <!-- <image src="/icon/08_overShow.png" mode="widthFix" style="width: 22px; height: 22px;"></image> -->
+    </view>
+  </view>
+</view>

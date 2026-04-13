@@ -1,0 +1,38 @@
+/**index.wxss**/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai*/
+/*release 2022, 7, March*/
+
+.content {  /*the parent element of the content*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content image {  /*image*/
+  width: 228rpx;
+  height: 228rpx;
+  margin-top: 40%;
+  margin-bottom: 17.06rpx;
+}
+
+.content text {  /*the word under the image*/
+  font-size: 19px;
+  margin-bottom: 32.4rpx;
+}
+
+.input {  /*the parent element of search component*/
+  width: 88.7vw;
+  height: 40px;
+  border: 1px solid #979797;
+  border-radius: 6px;
+}
+
+.input input {  /*search component*/
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+
+

@@ -1,0 +1,110 @@
+/*Vocabulary.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.content {
+    /*“内容“的父级*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20vw;
+}
+
+.content image {
+    /*图片样式*/
+    width: 31vw;
+    height: 31vw;
+}
+
+.unrealInput {
+  /*要进入二级菜单的搜索框样式*/
+  width: 90.4vw;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding-left: 7px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.result {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding-bottom: 10px;
+  margin-top: 2vw;
+  width: 90vw;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.resultList {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.titleAndPlace {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchContent_view_hide {  /*换一换页隐藏*/
+    display: None;
+}
+  
+.searchContent_view_show{  /*换一换页展示*/
+    display: flex;
+    flex-direction: column;
+}
+
+.titleAlign{
+    font-size: 16px; 
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.titleContent{
+    font-size: 14px; 
+    padding-top: 1px;
+}
+
+.onChange{  /*换一换的样式*/
+    font-size: 16px; 
+    color: rgba(0, 0, 0, 0.5); 
+    margin-left: 5vw; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+}
+
+.onChange :active{  /*按在换一换这个样式上不动*/
+    background-color: rgba(0, 0, 0, 5%);
+    border-radius: 6px;
+}
+
+.iconSize {  /*功能集右边的眼睛样式*/
+  width: 30px;
+}
+
+.showHideButton{
+  background-color: white;
+  padding: 4px 4vw 4px 4vw;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.showHideButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}

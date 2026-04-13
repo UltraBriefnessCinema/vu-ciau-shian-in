@@ -1,0 +1,70 @@
+<!-- jielong.wxml -->
+<!-- written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China -->
+
+<view class="input">
+  <!-- 搜索框 -->
+  <icon type="search" size="25" style="padding-left:7px;"></icon>
+  <input type="text" maxlength="9" placeholder="请输入文字" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+  <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+</view>
+
+<scroll-view class="focusView" wx:if="{{focusUI}}" scroll-y="true">
+  <view wx:for="{{focusList}}" wx:key="focusList" class="focusViewInternal" data-index="{{index}}" bindtap="simpleShow">
+    <text class="fontsize16">{{item.originalEntry}}</text>
+    <text class="fontsize10" style="color: rgba(0, 0, 0, 0.5); font-size: 10px; margin-left: 10px; ">{{item.place}}</text>
+  </view>
+</scroll-view>
+
+<view wx:if="{{jieLongTitle}}" style="font-size: 20px; margin-left: 5vw; margin-top: 10px; font-weight: bold;">接龙</view>
+
+<!--展开全部，反选全部，合拢全部的panel-->
+<view wx:if="{{threeBtns}}" style="display: flex; flex-direction: row; margin-left: 5vw;margin-top: 5px;">
+  <view class="showHideButton" bindtap="showAll">
+    <view>展开全部</view>
+  </view>
+  <view class="showHideButton" style="margin-left: 7.5vw; margin-right: 7.5vw;" bindtap="ReverseAll">
+    <view>反选全部</view>
+  </view>
+  <view class="showHideButton" bindtap="hideAll">
+    <view>合拢全部</view>
+  </view>
+</view>
+
+<view class="result" data-index="{{index}}" wx:for="{{tsiqLonList}}" wx:key="mainLi" bindtap="multiSimpleView">
+  <view class="resultList">
+    <view class="titleAndPlace">
+      <!-- 标题和地点 -->
+      <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.originalEntry}}</text>
+      <text style="font-size: 12px; color: rgba(0, 0, 0, .50); margin-left: 10px;" user-select="true">{{item.place}}</text>
+    </view>
+
+    <view wx:if="{{item.toggle == false}}" style="display: flex; flex-direction: column;">
+      <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">原条目</text>
+      <!-- 原条目标题 -->
+      <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.originalEntry}}</text>
+      <!-- 原条目内容 -->
+      <text class="titleAlign">释义</text>
+      <!-- 释义标题 -->
+      <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.explanation}}</text>
+      <!-- 释义内容 -->
+      <text class="titleAlign">出处</text>
+      <!-- 出处标题 -->
+      <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.source}}</text>
+      <!-- 出处内容 -->
+      <text class="titleAlign">拼音</text>
+      <!-- 拼音标题 -->
+      <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.pinYin}}</text>
+      <!-- 拼音内容 -->
+      <text class="titleAlign">例句</text>
+      <!-- 例句标题 -->
+      <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.example}}</text>
+      <!-- 例句内容 -->
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{tsiqLonBtn}}" class="tsiqLonButton" bindtap="tsiqLon">
+  <view style="font-weight: bold;">接</view>
+</view>
+
+<view style="text-align: center; margin-top: 5px; color: rgba(0, 0, 0, 0.5);">{{reachText}}</view>

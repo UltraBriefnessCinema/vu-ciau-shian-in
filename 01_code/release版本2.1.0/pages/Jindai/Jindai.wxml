@@ -1,0 +1,143 @@
+<!-- Jindai.wxml -->
+<!-- written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China -->
+<view>
+  <view class="head">
+    <view class="input">
+      <!-- 搜索框 -->
+      <icon type="search" size="25" style="padding-left: 7px;"></icon>
+      <input type="text" placeholder="输入词汇" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+      <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+    </view>
+    <view class="searchButton" bindtap="enterInput">
+      <view style="display: flex; flex-direction: column; align-items: center; padding-top: 9px; padding-bottom: 9px; ">查</view>
+    </view>
+  </view>
+  <!-- 三只radio和两个排序 -->
+  <view style="display: flex; flex-direction: row;">
+    <view style="margin-left: 5vw; margin-top: 10px;">
+      <radio-group name="type" bindchange="changeType">
+        <label>
+          <view class="radio">
+            <radio value="onFawen" checked="true"></radio>
+            <text>用法语查条目</text>
+          </view>
+        </label>
+        <label>
+          <view class="radio">
+            <radio value="onWuyu"></radio>
+            <text>用近代上海方言查条目</text>
+          </view>
+        </label>
+        <label>
+          <view class="radio">
+            <radio value="onGuanhua"></radio>
+            <text>用普通话查释义</text>
+          </view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  
+  <view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 10px; margin-left: 5vw;"></view>
+  <!-- 作条分隔线 -->
+  <view>
+    <view>
+      <!-- 高级搜索1_锁定地区 -->
+      <view>
+        <!-- 锁定地区字样 -->
+        <view style="margin-left: 5vw; margin-top: 5px; display: flex; flex-direction: row; align-items: center;">
+          <text style="font-size: 16px; font-weight: bold;">锁定搜索</text>
+          <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{BookName}}</text>
+        </view>
+      </view>
+      <!-- 以下是一大堆按钮 -->
+      <view style="display: flex; flex-direction: row; flex-wrap: wrap; margin-left: 5vw;">
+        <view class="FaHuaZiHui" bindtap="FaHuaZiHuiBtn">
+          <!-- 法华字汇书按钮 -->
+          <view class="buttonStyle">1905法华字汇</view>
+        </view>
+      </view>
+      <!-- 以下是所有按钮中的radio -->
+    </view>
+    <view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 5px; margin-left: 5vw;"></view>
+    <!-- 作条分隔线 -->
+  </view>
+  <!-- 解决数据没有查询到 -->
+  <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 5px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+    <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+  </view>
+</view>
+<!-- 展开全部，反选全部，合拢全部的panel -->
+<view wx:if="{{showHideBtnPanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
+  <view class="showHideButton" style="margin-left: 5vw;" bindtap="showAll">
+    <text>全部展开</text>
+  </view>
+  <view class="showHideButton" bindtap="ReverseAll">
+    <text>全部反选</text>
+  </view>
+  <view class="showHideButton" style="margin-right: 5vw;" bindtap="hideAll">
+    <text>全部合拢</text>
+  </view>
+</view>
+<view class="body">
+  <view class="result" wx:for="{{list}}" wx:key="list" data-index="{{index}}" bindtap="simpleShow">
+    <!-- 搜索结果 -->
+    <view class="resultList">
+      
+      <view class="textAndTran">
+        <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.hanzi}}</text>
+        <text style="font-size: 12px; color: rgba(0, 0, 0, .50);" user-select="true">{{item.text}}</text>
+      </view>
+
+      <!-- 结果的正文部分 -->
+      <view wx:if="{{item.toggle == false}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+        
+        <!-- 使用 <block wx:if="..."> 将标题和内容包起来。如果没有数据，标题和内容一起消失 -->
+        
+        <!-- 沪文纠正 -->
+        <block wx:if="{{item.han_correct}}">
+          <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">沪文纠正</text>
+          <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.han_correct}}</text>
+        </block>
+
+        <!-- 词性 -->
+        <block wx:if="{{item.verb}}">
+          <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">词性</text>
+          <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.verb}}</text>
+        </block>
+
+        <!-- 法文释义 -->
+        <block wx:if="{{item.explanation}}">
+          <text class="titleAlign">法文释义</text>
+          <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.explanation}}</text>
+        </block>
+
+        <!-- 国文 / 官话 -->
+        <block wx:if="{{item.madarian}}">
+          <text class="titleAlign">国文</text>
+          <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.madarian}}</text>
+        </block>
+
+        <!-- 罗马拼音 -->
+        <block wx:if="{{item.romen}}">
+          <text class="titleAlign">罗马拼音</text>
+          <text class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.romen}}</text>
+        </block>
+
+        <!-- 罗马拼音校正 -->
+        <block wx:if="{{item.ro_correct}}">
+          <text class="titleAlign">罗马拼音校正</text>
+          <text class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.ro_correct}}</text>
+        </block>
+
+        <!-- 校正说明 -->
+        <block wx:if="{{item.description}}">
+          <text class="titleAlign">校正说明</text>
+          <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.description}}</text>
+        </block>
+
+      </view>
+    </view>
+  </view>
+  <view style="color: rgba(0, 0, 0, .50); padding-bottom: 50px; padding-top: 10px;">{{reachBottom}}</view>
+</view>

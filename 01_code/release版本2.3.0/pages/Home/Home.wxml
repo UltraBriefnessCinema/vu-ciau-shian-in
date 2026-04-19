@@ -1,0 +1,43 @@
+<!--20221230写于松江小昆山-泖东小囡-->
+<view wx:if="{{!fontReady}}" class="launch-mask">
+  <text>字体加载中...</text>
+</view>
+
+<image src="/systemImage/home.jpg" mode="widthFix" style="width: 100%;"></image>  <!--头部的图片-->
+<view style="position: absolute; top: 22vh; left: 25%; right: 25%; display: flex; flex-direction: column; align-items: center;">   <!--标志和文字-->
+  <image src="/systemImage/logo.png" mode="widthFix" style="width: 20vw; text-align: center;"></image>
+  <text style="font-size: 15px; font-weight: bold; color: white; margin-top: 5px;text-align: center;">上海地区乡土语言查询平台</text>
+</view>
+
+<!--以下是功能集-->
+<navigator url="/pages/ToneGeneration/ToneGeneration">
+  <view class="text_surface">  <!--变调生成-->
+    <text class="text_title">变调生成</text>
+    <view class="text_line"></view>  <!--分隔线-->
+    <text class="text_content">据各地广用式变调规则自动生成(以实际为准)</text>
+  </view>
+</navigator>
+
+<navigator url="/pages/Jielong/Jielong">
+  <view class="text_surface">    <!--词语接龙-->
+    <text class="text_title">词语接龙</text>
+    <view class="text_line"></view>
+    <text class="text_content">选择一个词语系统会自动接龙</text>
+  </view>
+</navigator>
+
+<navigator url="/pages/Jindai/Jindai">
+  <view class="text_surface">
+    <text class="text_title">晚清上海话词汇库</text>
+    <view class="text_line"></view>
+    <text class="text_content">近代上海方言查询仅支持繁体字</text>
+  </view>
+</navigator>
+
+<navigator url="/pages/ShChat/ShChat">
+  <view class="text_surface">
+    <text class="text_title">上海地区方言大语言模型</text>
+    <view class="text_line"></view>
+    <text class="text_content">当前仅适配上海市区方言</text>
+  </view>
+</navigator>

@@ -1,0 +1,60 @@
+<!-- pages/ShChat/ShChat.wxml -->
+<view class="chat-container">
+  <!-- 标题 -->
+  <view class="chat-header">
+    <text>侬好！今朝想学啥上海闲话？</text>
+  </view>
+
+  <!-- 聊天滚动区 -->
+  <scroll-view class="chat-scroll" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation enhanced show-scrollbar="{{false}}">
+    <view class="chat-messages">
+      <view wx:for="{{messages}}" wx:key="id" id="msg-{{item.id}}" class="message-row">
+        <view class="msg {{item.role}}">
+          <block wx:for="{{item.contentFragments}}" wx:for-item="frag">
+            <!-- 纯文本 -->
+            <text wx:if="{{frag.type === 'text'}}" user-select>{{frag.text}}</text>
+            <!-- 加粗 -->
+            <text wx:elif="{{frag.type === 'b'}}" style="font-weight: bold;" user-select>{{frag.text}}</text>
+            <!-- 换行 -->
+            <view wx:elif="{{frag.type === 'br'}}"></view>
+            <!-- 分割线 -->
+            <view wx:elif="{{frag.type === 'hr'}}" class="divider"></view>
+            <!-- 小字 -->
+            <text wx:elif="{{frag.type === 'small'}}" class="small-text" user-select>{{frag.text}}</text>
+            <!-- 快速生成语音按钮 -->
+            <view wx:elif="{{frag.type === 'quickRead'}}" class="quick-read-btn" catchtap="onQuickRead" data-word="{{frag.word}}">
+              <text>▶ 点击生成语音</text>
+            </view>
+            <!-- 可点击下载链接 -->
+            <text wx:elif="{{frag.type === 'link'}}" class="link-text" bindtap="downloadLink" data-url="{{frag.href}}">{{frag.text}}</text>
+          </block>
+          <!-- 播放语音按钮 -->
+          <view wx:if="{{item.audioUrl}}" class="audio-btn" bindtap="playAudio" data-url="{{item.audioUrl}}">
+            <text>🔊 播放语音</text>
+          </view>
+        </view>
+      </view>
+      <!-- 加载中 -->
+      <view wx:if="{{isLoading}}" class="message-row">
+        <view class="msg ai thinking">思考中...</view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部输入区：禁用自动调整，通过 bindfocus 手动处理 -->
+  <view class="input-area" style="padding-bottom: {{keyboardPadding}}px;">
+    <input
+      class="text-input"
+      placeholder="输入内容(回车以发送)..."
+      value="{{inputText}}"
+      bindinput="onInput"
+      bindconfirm="enterInput"
+      bindfocus="onInputFocus"
+      bindblur="onInputBlur"
+      confirm-type="send"
+      adjust-position="{{false}}"
+      cursor-spacing="20"
+      hold-keyboard="{{true}}"
+    />
+  </view>
+</view>

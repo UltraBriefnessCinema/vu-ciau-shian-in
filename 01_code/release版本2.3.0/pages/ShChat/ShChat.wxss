@@ -1,0 +1,128 @@
+/* pages/ShChat/ShChat.wxss */
+page {
+  height: 100%;
+  background: #f0f2f5;
+  overflow: hidden;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5%;
+  height: 100vh;
+  background: #f0f2f5;
+}
+
+.chat-header {
+  text-align: center;
+  padding: 30rpx 0 20rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  background: #f0f2f5;
+  flex-shrink: 0;
+}
+
+.chat-scroll {
+  flex: 1;
+  margin: 0 20rpx;
+  background: white;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 20rpx rgba(0,0,0,0.05);
+  overflow: hidden;
+  height: 0;
+}
+
+.chat-messages {
+  padding: 20rpx;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.msg {
+  max-width: 85%;
+  padding: 20rpx 28rpx;
+  border-radius: 36rpx;
+  font-size: 32rpx;
+  line-height: 1.5;
+  word-break: break-word;
+  background-color: #e9ecef;
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 8rpx;
+}
+
+.msg.user {
+  background-color: #007bff;
+  color: white;
+  margin-left: auto;
+  margin-right: 0;
+  border-bottom-right-radius: 8rpx;
+  border-bottom-left-radius: 36rpx;
+}
+
+.msg.ai {
+  background-color: #e9ecef;
+  color: #333;
+}
+
+.thinking {
+  color: #888;
+  font-style: italic;
+}
+
+.divider {
+  border-top: 1rpx solid #ddd;
+  margin: 10rpx 0;
+}
+
+.small-text {
+  color: gray;
+  font-size: 28rpx;
+}
+
+.audio-btn, .quick-read-btn {
+  margin-top: 10rpx;
+  padding: 8rpx 16rpx;
+  background: rgba(0,123,255,0.1);
+  border-radius: 30rpx;
+  display: inline-block;
+}
+
+.audio-btn text, .quick-read-btn text {
+  font-size: 28rpx;
+  color: #007bff;
+}
+
+.link-text {
+  color: #007bff;
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* 底部输入区 */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  /* padding-bottom 由 JS 动态控制，移除 calc 固定值 */
+  background: #f0f2f5;
+  flex-shrink: 0;
+  transition: padding-bottom 0.2s ease; /* 可选：平滑过渡 */
+}
+
+/* 单行输入框 */
+.text-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 30rpx;
+  background: white;
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  line-height: 80rpx;
+  border: 1rpx solid #ddd;
+  box-sizing: border-box;
+}

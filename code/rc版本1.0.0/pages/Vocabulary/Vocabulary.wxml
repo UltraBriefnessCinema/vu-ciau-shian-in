@@ -1,0 +1,78 @@
+<!--Vocabulary.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="content">
+  <!--内容部分-->
+  <image src="/systemImage/logo.png" mode="widthFix"></image>
+  <text style="font-size: 19px; margin-bottom: 10px; margin-top: 10px; font-weight: bold">词汇查询</text>
+  <navigator url="/pages/Vocabulary-1/Vocabulary-1">
+    <view class="unrealInput">
+      <!--点进此搜索框进入二级菜单-->
+      <icon type="search" size="25"></icon>
+      <view style="padding-left: 4px;">输入词汇</view>
+    </view>
+  </navigator>
+</view>
+
+<view style="margin-bottom: 5vw;">
+  <!--有看呒看界面-->
+  <view style="display: flex; flex-direction: column; margin-top: 10px">
+      <view style="display: flex; flex-direction: row; align-items: center;">
+        <image wx:if="{{isShow}}" src="/icon/08_eyeOff.svg" mode="widthFix" class="iconSize" style="margin-left: 5vw;" bindtap="advanceSearchBtn"></image>
+        <image wx:else="{{isShow}}" src="/icon/07_eyeOn.svg" mode="widthFix" class="iconSize" style="margin-left: 5vw;" bindtap="advanceOnSearchBtn"></image>
+        <text style="font-size: 20px; margin-left: 10px; font-weight:bold;">随机跳词</text>
+        <view wx:if="{{onChangeIF}}" class="onChange" bindtap="onChange">
+          <image src="/icon/11_refresh.svg" mode="widthFix" style="width: 20px;"></image>
+        </view>
+      </view>
+
+      <!--展开全部，反选全部，合拢全部的panel-->
+        <view wx:if="{{showHideBtnPanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+            <view class="showHideButton" style="margin-left: 5vw;" bindtap="showAll">
+                <text>全部展开</text>
+            </view>
+            <view class="showHideButton" bindtap="ReverseAll">
+                <text>全部反选</text>
+            </view>
+            <view class="showHideButton" style="margin-right: 5vw;" bindtap="hideAll">
+                <text>全部合拢</text>
+            </view>
+        </view>
+
+      <view wx:if="{{resultArea}}" class="result" wx:for="{{list}}" wx:key="list" data-index="{{index}}" bindtap="simpleShow">
+        <view class="resultList">
+          <view class="titleAndPlace">
+            <!--标题+地点-->
+            <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.vocabulary}}</text>
+            <text style="font-size: 12px; color: rgba(0, 0, 0, .50); " user-select="true">{{item.place}}</text>
+          </view>
+          <!--正文部分-->
+          <view style="display: flex; flex-direction: column;" wx:if="{{item.toggle == false}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+              <!--原条目标题-->
+              <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">原条目</text>
+              <!--原条目内容-->
+              <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.originalEntry}}</text>
+              <!--释义标题-->
+              <text class="titleAlign">释义</text>
+              <!--释义内容-->
+              <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.explanation}}</text>
+              <!--出处标题-->
+              <text class="titleAlign">出处</text>
+              <!--出处内容-->
+              <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.source}}</text>
+              <!--拼音标题-->
+              <text class="titleAlign">拼音</text>
+              <!--拼音内容-->
+              <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.pinYin}}</text>
+              <!--例句标题-->
+              <text class="titleAlign">例句</text>
+              <!--例句内容-->
+              <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.example}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view>
+
+  </view>
+</view>

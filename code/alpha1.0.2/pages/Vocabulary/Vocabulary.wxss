@@ -1,0 +1,55 @@
+/**index.wxss**/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai*/
+/*release 2022, 2, March*/
+
+.content {  /*the parent element of the content*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content image {  /*image*/
+  width: 228rpx;
+  height: 228rpx;
+  margin-top: 40%;
+  margin-bottom: 17.06rpx;
+}
+
+.content text {  /*the word under the image*/
+  font-size: 19px;
+  margin-bottom: 32.4rpx;
+}
+
+.input {  /*the parent element of search component*/
+  width: 88.7vw;
+  height: 40px;
+  border: 1px solid #979797;
+  border-radius: 6px;
+}
+
+.input input {  /*search component*/
+  padding-left: 20px;
+  padding-top: 6px;
+  font-size: 16px;
+}
+
+.RadioContent {
+  flex-direction: row;
+  margin-bottom: 5.24px;
+}
+
+.RadioContent text {
+  margin-left: 4.87px;
+  font-size: 14px;
+}
+
+.RadioContent radio {
+  width: 24px;
+  height: 24px;
+}
+
+.Select {
+  position: absolute;
+  left: 70%;
+  top: 32%;
+}

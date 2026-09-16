@@ -1,0 +1,22 @@
+<!--AboutUs.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="../../systemImage/logo.png" mode="widthFix"></image>
+    <text class="aboutUs">关于我们</text>
+
+    <scroll-view scroll-y="true">
+      <view class="content">
+        <text class="content-text">公众号：沪郊乡音
+邮箱：xxxxxx@xx.com
+        </text>
+        <text class="content-text">录入整理：***</text>
+        <text class="content-text">字表发音：</text>
+        <text class="content-text">程序制作：高晨烨</text>
+        <text class="content-text">参考文献：</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>  

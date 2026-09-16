@@ -1,0 +1,1311 @@
+<!-- Vocabulary-1.wxml -->
+<!-- written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China -->
+<view>
+  <view class="head">
+    <view class="input">
+      <!-- 搜索框 -->
+      <icon type="search" size="25" style="padding-left: 7px;"></icon>
+      <input type="text" placeholder="输入词汇" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+      <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+    </view>
+    <view class="searchButton" bindtap="enterInput">
+      <view style="display: flex; flex-direction: column; align-items: center; padding-top: 9px; padding-bottom: 9px; ">查</view>
+    </view>
+  </view>
+  <!-- 三只radio -->
+  <view style="margin-left: 5vw; margin-top: 10px;">
+    <radio-group name="type" bindchange="changeType">
+      <label>
+        <view class="radio">
+          <radio value="onVocabularyKnown" checked="true"></radio>
+          <text>查词条(推荐写法)</text>
+        </view>
+      </label>
+      <label>
+        <view class="radio">
+          <radio value="onVocabularyUnKnown"></radio>
+          <text>查词条(其他写法)</text>
+        </view>
+      </label>
+      <label>
+        <view class="radio">
+          <radio value="onMean"></radio>
+          <text>查释义</text>
+        </view>
+      </label>
+    </radio-group>
+  </view>
+  <view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 10px; margin-left: 5vw;"></view>
+  <!-- 作条分隔线 -->
+  <view>
+    <view>
+      <!-- 高级搜索1_锁定地区 -->
+      <view>
+        <!-- 锁定地区字样 -->
+        <view style="margin-left: 5vw; margin-top: 5px; display: flex; flex-direction: row; align-items: center;">
+          <text style="font-size: 16px; font-weight: bold;">锁定搜索</text>
+          <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{countyName}}</text>
+          <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{townName}}</text>
+        </view>
+      </view>
+      <!-- 以下是一大堆按钮 -->
+      <view style="display: flex; flex-direction: row; flex-wrap: wrap; margin-left: 5vw;">
+        <view class="shanghaiAll" bindtap="shanghaiAllBtn">
+          <!-- 上海全境按钮 -->
+          <view class="buttonStyle">上海全境</view>
+        </view>
+        <view class="shanghaiShi" bindtap="shanghaiShiBtn">
+          <!-- 上海市区按钮 -->
+          <view class="buttonStyle">上海市区</view>
+        </view>
+        <view class="shanghaiXian" bindtap="shanghaiXianBtn">
+          <!-- 上海县按钮 -->
+          <view class="buttonStyle">上海县</view>
+        </view>
+        <view class="songjiang" bindtap="songjiangBtn">
+          <!-- 松江按钮 -->
+          <view class="buttonStyle">松江</view>
+        </view>
+        <view class="jinshan" bindtap="jinshanBtn">
+          <!-- 金山按钮 -->
+          <view class="buttonStyle">金山</view>
+        </view>
+        <view class="qingpu" bindtap="qingpuBtn">
+          <!-- 青浦按钮 -->
+          <view class="buttonStyle">青浦</view>
+        </view>
+        <view class="fengxian" bindtap="fengxianBtn">
+          <!-- 奉贤按钮 -->
+          <view class="buttonStyle">奉贤</view>
+        </view>
+        <view class="chuansha" bindtap="chuanshaBtn">
+          <!-- 川沙按钮 -->
+          <view class="buttonStyle">川沙</view>
+        </view>
+        <view class="nanhui" bindtap="nanhuiBtn">
+          <!-- 南汇按钮 -->
+          <view class="buttonStyle">南汇</view>
+        </view>
+        <view class="jiading" bindtap="jiadingBtn">
+          <!-- 嘉定按钮 -->
+          <view class="buttonStyle">嘉定</view>
+        </view>
+        <view class="baoshan" bindtap="baoshanBtn">
+          <!-- 宝山按钮 -->
+          <view class="buttonStyle">宝山</view>
+        </view>
+        <view class="chongming" bindtap="chongmingBtn">
+          <!-- 崇明按钮 -->
+          <view class="buttonStyle">崇明</view>
+        </view>
+        <view class="comprehensive" bindtap="comprehensiveBtn">
+          <!--the button what can search comprehensive data-->
+          <view class="buttonStyle">综合整理</view>
+        </view>
+      </view>
+      <!-- 以下是所有按钮中的radio -->
+      <view wx:if="{{shanghaiShiValue}}" class="radioPanel">
+        <!-- 上海市区中的radio -->
+        <radio-group style="display: flex; flex-direction: row;  align-self: center;  flex-wrap: wrap;  justify-content: flex-start; margin-left: 2vw;" name="shanghaiShiRadio" bindchange="shanghaiShiChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_all" checked="{{shanghaishi_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_nanshi" checked="{{shanghaishi_nanshi_checked}}"></radio>
+              <text class="fontButton">南市</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_xujiahui" checked="{{shanghaishi_xujiahui_checked}}"></radio>
+              <text class="fontButton">徐家汇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_fahua" checked="{{shanghaishi_fahua_checked}}"></radio>
+              <text class="fontButton">法华</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{shanghaiXianValue}}" class="radioPanel">
+        <!-- 上海县中的radio -->
+        <radio-group class="BtnradioGroup" name="shanghaiXianRadio" bindchange="shanghaiXianChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_all" checked="{{shanghaixian_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_beiqiao" checked="{{shanghaixian_beiqiao_checked}}"></radio>
+              <text class="fontButton">北桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_chenhang" checked="{{shanghaixian_chenhang_checked}}"></radio>
+              <text class="fontButton">陈行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_duhang" checked="{{shanghaixian_duhang_checked}}"></radio>
+              <text class="fontButton">杜行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_hongqiao" checked="{{shanghaixian_hongqiao_checked}}"></radio>
+              <text class="fontButton">虹桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_huacao" checked="{{shanghaixian_huacao_checked}}"></radio>
+              <text class="fontButton">华漕</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_huajing" checked="{{shanghaixian_huajing_checked}}"></radio>
+              <text class="fontButton">华泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_jiwang" checked="{{shanghaixian_jiwang_checked}}"></radio>
+              <text class="fontButton">纪王</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_longhua" checked="{{shanghaixian_longhua_checked}}"></radio>
+              <text class="fontButton">龙华</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_luhui" checked="{{shanghaixian_luhui_checked}}"></radio>
+              <text class="fontButton">鲁汇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_meilong" checked="{{shanghaixian_meilong_checked}}"></radio>
+              <text class="fontButton">梅陇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_qibao" checked="{{shanghaixian_qibao_checked}}"></radio>
+              <text class="fontButton">七宝</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_sanlin" checked="{{shanghaixian_sanlin_checked}}"></radio>
+              <text class="fontButton">三林</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_xinzhuang" checked="{{shanghaixian_xinzhuang_checked}}"></radio>
+              <text class="fontButton">莘庄</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_tangwan" checked="{{shanghaixian_tangwan_checked}}"></radio>
+              <text class="fontButton">塘湾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_wujing" checked="{{shanghaixian_wujing_checked}}"></radio>
+              <text class="fontButton">吴泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_xinjing" checked="{{shanghaixian_xinjing_checked}}"></radio>
+              <text class="fontButton">新泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_zhudi" checked="{{shanghaixian_zhudi_checked}}"></radio>
+              <text class="fontButton">诸翟</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_zhuanqiao" checked="{{shanghaixian_zhuanqiao_checked}}"></radio>
+              <text class="fontButton">颛桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaixian_beixinjing" checked="{{shanghaixian_beixinjing_checked}}"></radio>
+              <text class="fontButton">北新泾</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{songjiangValue}}" class="radioPanel">
+        <!-- 松江中的radio -->
+        <radio-group class="BtnradioGroup" name="songjiangRadio" bindchange="songjiangChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_all" checked="{{songjiang_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_cangqiao" checked="{{songjiang_cangqiao_checked}}"></radio>
+              <text class="fontButton">仓桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_chedun" checked="{{songjiang_chedun_checked}}"></radio>
+              <text class="fontButton">车墩</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_dongjing" checked="{{songjiang_dongjing_checked}}"></radio>
+              <text class="fontButton">洞泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_jiuting" checked="{{songjiang_jiuting_checked}}"></radio>
+              <text class="fontButton">九亭</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_sheshan" checked="{{songjiang_sheshan_checked}}"></radio>
+              <text class="fontButton">佘山</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_sijing" checked="{{songjiang_sijing_checked}}"></radio>
+              <text class="fontButton">泗泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_xinbang" checked="{{songjiang_xinbang_checked}}"></radio>
+              <text class="fontButton">新浜</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_xinqiao" checked="{{songjiang_xinqiao_checked}}"></radio>
+              <text class="fontButton">新桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_yexie" checked="{{songjiang_yexie_checked}}"></radio>
+              <text class="fontButton">叶榭</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_zhangze" checked="{{songjiang_zhangze_checked}}"></radio>
+              <text class="fontButton">张泽</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_shihudang" checked="{{songjiang_shihudang_checked}}"></radio>
+              <text class="fontButton">石湖荡</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_tianmashan" checked="{{songjiang_tianmashan_checked}}"></radio>
+              <text class="fontButton">天马山</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_wulitang" checked="{{songjiang_wilitang_checked}}"></radio>
+              <text class="fontButton">五里塘</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_xiaokunshan" checked="{{songjiang_xiaokunshan_checked}}"></radio>
+              <text class="fontButton">小昆山</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_songjiangzhen" checked="{{songjiang_songjiangzhen_checked}}"></radio>
+              <text class="fontButton">松江镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{jinshanValue}}" class="radioPanel">
+        <!-- 金山中的radio -->
+        <radio-group class="BtnradioGroup" name="jinshanRadio" bindchange="jinshanChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_all" checked="{{jinshan_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_caojing" checked="{{jinshan_caojing_checked}}"></radio>
+              <text class="fontButton">漕泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_fengjing" checked="{{jinshan_fengjing_checked}}"></radio>
+              <text class="fontButton">枫泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_ganxiang" checked="{{jinshan_ganxiang_checked}}"></radio>
+              <text class="fontButton">干巷</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_langxia" checked="{{jinshan_langxia_checked}}"></radio>
+              <text class="fontButton">廊下</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_lvxiang" checked="{{jinshan_lvxiang_checked}}"></radio>
+              <text class="fontButton">吕巷</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_qianyu" checked="{{jinshan_qianyu_checked}}"></radio>
+              <text class="fontButton">钱圩</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_shanyang" checked="{{jinshan_shanyang_checked}}"></radio>
+              <text class="fontButton">山阳</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_tinglin" checked="{{jinshan_tinglin_checked}}"></radio>
+              <text class="fontButton">亭林</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_xinnong" checked="{{jinshan_xinnong_checked}}"></radio>
+              <text class="fontButton">新农</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_xingta" checked="{{jinshan_xingta_checked}}"></radio>
+              <text class="fontButton">兴塔</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_zhuhang" checked="{{jinshan_zhuhang_checked}}"></radio>
+              <text class="fontButton">朱行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_zhujing" checked="{{jinshan_zhujing_checked}}"></radio>
+              <text class="fontButton">朱泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jinshan_jinshanwei" checked="{{jinshan_jinshanwei_checked}}"></radio>
+              <text class="fontButton">金山卫</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{qingpuValue}}" class="radioPanel">
+        <!-- 青浦中的radio -->
+        <radio-group class="BtnradioGroup" name="qingpuRadio" bindchange="qingpuChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_all" checked="{{qingpu_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_baihe" checked="{{qingpu_baihe_checked}}"></radio>
+              <text class="fontButton">白鹤</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_daying" checked="{{qingpu_daying_checked}}"></radio>
+              <text class="fontButton">大盈</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_fengxi" checked="{{qingpu_fengxi_checked}}"></radio>
+              <text class="fontButton">凤溪</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_huancheng" checked="{{qingpu_huancheng_checked}}"></radio>
+              <text class="fontButton">环城</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_jinze" checked="{{qingpu_jinze_checked}}"></radio>
+              <text class="fontButton">金泽</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_liansheng" checked="{{qingpu_liansheng_checked}}"></radio>
+              <text class="fontButton">莲盛</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_liantang" checked="{{qingpu_liantang_checked}}"></radio>
+              <text class="fontButton">练塘</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_shangta" checked="{{qingpu_shangta_checked}}"></radio>
+              <text class="fontButton">商榻</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_shenxiang" checked="{{qingpu_shenxiang_checked}}"></radio>
+              <text class="fontButton">沈巷</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_xiceng" checked="{{qingpu_xiceng_checked}}"></radio>
+              <text class="fontButton">西岑</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_xiaozheng" checked="{{qingpu_xiaozheng_checked}}"></radio>
+              <text class="fontButton">小蒸</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_xujing" checked="{{qingpu_xujing_checked}}"></radio>
+              <text class="fontButton">徐泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_huaxin" checked="{{qingpu_huaxin_checked}}"></radio>
+              <text class="fontButton">华新</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_yingzhong" checked="{{qingpu_yingzhong_checked}}"></radio>
+              <text class="fontButton">盈中</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_zhaotun" checked="{{qingpu_zhaotun_checked}}"></radio>
+              <text class="fontButton">赵屯</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_zhaoxiang" checked="{{qingpu_zhaoxiang_checked}}"></radio>
+              <text class="fontButton">赵巷</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_zhengdian" checked="{{qingpu_zhengdian_checked}}"></radio>
+              <text class="fontButton">蒸淀</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_chonggu" checked="{{qingpu_chonggu_checked}}"></radio>
+              <text class="fontButton">重固</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_zhujiajiao" checked="{{qingpu_zhujiajiao_checked}}"></radio>
+              <text class="fontButton">朱家角</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_xianghuaqiao" checked="{{qingpu_xianghuaqiao_checked}}"></radio>
+              <text class="fontButton">香花桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_qingpuzhen" checked="{{qingpu_qingpuzhen_checked}}"></radio>
+              <text class="fontButton">青浦镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{fengxianValue}}" class="radioPanel">
+        <!-- 奉贤中的radio -->
+        <radio-group class="BtnradioGroup" name="fengxianRadio" bindchange="fengxianChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_all" checked="{{fengxian_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_fengcheng" checked="{{fengxian_fengcheng_checked}}"></radio>
+              <text class="fontButton">奉城</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_fengxin" checked="{{fengxian_fengxin_checked}}"></radio>
+              <text class="fontButton">奉新</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_guangming" checked="{{fengxian_guangming_checked}}"></radio>
+              <text class="fontButton">光明</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_hongmiao" checked="{{fengxian_hongmiao_checked}}"></radio>
+              <text class="fontButton">洪庙</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_huqiao" checked="{{fengxian_huqiao_checked}}"></radio>
+              <text class="fontButton">胡桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_jianghai" checked="{{fengxian_jianghai_checked}}"></radio>
+              <text class="fontButton">江海</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_jinhui" checked="{{fengxian_jinhui_checked}}"></radio>
+              <text class="fontButton">金汇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_nanqiao" checked="{{fengxian_nanqiao_checked}}"></radio>
+              <text class="fontButton">南桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_pingan" checked="{{fengxian_pingan_checked}}"></radio>
+              <text class="fontButton">平安</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_qianqiao" checked="{{fengxian_qianqiao_checked}}"></radio>
+              <text class="fontButton">钱桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_qingcun" checked="{{fengxian_qingcun_checked}}"></radio>
+              <text class="fontButton">青村</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_shaochang" checked="{{fengxian_shaochang_checked}}"></radio>
+              <text class="fontButton">邵厂</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_situan" checked="{{fengxian_situan_checked}}"></radio>
+              <text class="fontButton">四团</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_tairi" checked="{{fengxian_tairi_checked}}"></radio>
+              <text class="fontButton">泰日</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_tangwai" checked="{{fengxian_tangwai_checked}}"></radio>
+              <text class="fontButton">塘外</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_touqiao" checked="{{fengxian_touqiao_checked}}"></radio>
+              <text class="fontButton">头桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_wuqiao" checked="{{fengxian_wuqiao_checked}}"></radio>
+              <text class="fontButton">邬桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_xidu" checked="{{fengxian_xidu_checked}}"></radio>
+              <text class="fontButton">西渡</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_xiaotang" checked="{{fengxian_xiaotang_checked}}"></radio>
+              <text class="fontButton">萧塘</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_xinsi" checked="{{fengxian_xinsi_checked}}"></radio>
+              <text class="fontButton">新寺</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_zhelin" checked="{{fengxian_zhelin_checked}}"></radio>
+              <text class="fontButton">柘林</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_zhuanghang" checked="{{fengxian_zhuanghang_checked}}"></radio>
+              <text class="fontButton">庄行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_zhelin_nanshanhua" checked="{{fengxian_zhelin_nanshanhua_checked}}"></radio>
+              <text class="fontButton">柘林(南山话)</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{chuanshaValue}}" class="radioPanel">
+        <!-- 川沙中的radio -->
+        <radio-group class="BtnradioGroup" name="chuanshaRadio" bindchange="chuanshaChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_all" checked="{{chuansha_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_beicai" checked="{{chuansha_beicai_checked}}"></radio>
+              <text class="fontButton">北蔡</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_caolu" checked="{{chuansha_caolu_checked}}"></radio>
+              <text class="fontButton">曹路</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_gaodong" checked="{{chuansha_gaodong_checked}}"></radio>
+              <text class="fontButton">高东</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_gaohang" checked="{{chuansha_gaohang_checked}}"></radio>
+              <text class="fontButton">高行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_gaonan" checked="{{chuansha_gaonan_checked}}"></radio>
+              <text class="fontButton">高南</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_gaoqiao" checked="{{chuansha_gaoqiao_checked}}"></radio>
+              <text class="fontButton">高桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_heqing" checked="{{chuansha_heqing_checked}}"></radio>
+              <text class="fontButton">合庆</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_huamu" checked="{{chuansha_huamu_checked}}"></radio>
+              <text class="fontButton">花木</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_jiangzhen" checked="{{chuansha_jiangzhen_checked}}"></radio>
+              <text class="fontButton">江镇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_shiwan" checked="{{chuansha_shiwan_checked}}"></radio>
+              <text class="fontButton">施湾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_jinqiao" checked="{{chuansha_jinqiao_checked}}"></radio>
+              <text class="fontButton">金桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_lingqiao" checked="{{chuansha_lingqiao_checked}}"></radio>
+              <text class="fontButton">凌桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_liuli" checked="{{chuansha_liuli_checked}}"></radio>
+              <text class="fontButton">六里</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_tangzhen" checked="{{chuansha_tangzhen_checked}}"></radio>
+              <text class="fontButton">唐镇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_wanggang" checked="{{chuansha_wanggang_checked}}"></radio>
+              <text class="fontButton">王港</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_yanqiao" checked="{{chuansha_yanqiao_checked}}"></radio>
+              <text class="fontButton">严桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_yangsi" checked="{{chuansha_yangsi_checked}}"></radio>
+              <text class="fontButton">杨思</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_yangyuan" checked="{{chuansha_yangyuan_checked}}"></radio>
+              <text class="fontButton">杨园</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_yangjing" checked="{{chuansha_yangjing_checked}}"></radio>
+              <text class="fontButton">洋泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_zhangjiang" checked="{{chuansha_zhangjiang_checked}}"></radio>
+              <text class="fontButton">张江</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_zhangqiao" checked="{{chuansha_zhangqiao_checked}}"></radio>
+              <text class="fontButton">张桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_chuanshazhen" checked="{{chuansha_chuanshazhen_checked}}"></radio>
+              <text class="fontButton">川沙镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{nanhuiValue}}" class="radioPanel">
+        <!-- 南汇中的radio -->
+        <radio-group class="BtnradioGroup" name="nanhuiRadio" bindchange="nanhuiChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_all" checked="{{nanhui_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_binhai" checked="{{nanhui_binhai_checked}}"></radio>
+              <text class="fontButton">滨海</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_datuan" checked="{{nanhui_datuan_checked}}"></radio>
+              <text class="fontButton">大团</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_donghai" checked="{{nanhui_donghai_checked}}"></radio>
+              <text class="fontButton">东海</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_hangtou" checked="{{nanhui_hangtou_checked}}"></radio>
+              <text class="fontButton">航头</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_hengmian" checked="{{nanhui_hengmian_checked}}"></radio>
+              <text class="fontButton">横沔</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_huanglu" checked="{{nanhui_huanglu_checked}}"></radio>
+              <text class="fontButton">黄路</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_kangqiao" checked="{{nanhui_kangqiao_checked}}"></radio>
+              <text class="fontButton">康桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_laogang" checked="{{nanhui_laogang_checked}}"></radio>
+              <text class="fontButton">老港</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_liuzao" checked="{{nanhui_liuzao_checked}}"></radio>
+              <text class="fontButton">六灶</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_nicheng" checked="{{nanhui_nicheng_checked}}"></radio>
+              <text class="fontButton">泥城</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_pengzhen" checked="{{nanhui_pengzhen_checked}}"></radio>
+              <text class="fontButton">彭镇</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_sandun" checked="{{nanhui_sandun_checked}}"></radio>
+              <text class="fontButton">三墩</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_sanzao" checked="{{nanhui_sanzao_checked}}"></radio>
+              <text class="fontButton">三灶</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_shuyuan" checked="{{nanhui_shuyuan_checked}}"></radio>
+              <text class="fontButton">书院</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_tanzhi" checked="{{nanhui_tanzhi_checked}}"></radio>
+              <text class="fontButton">坦直</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_waxie" checked="{{nanhui_waxie_checked}}"></radio>
+              <text class="fontButton">瓦屑</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_wanxiang" checked="{{nanhui_wanxiang_checked}}"></radio>
+              <text class="fontButton">万祥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_xiasha" checked="{{nanhui_xiasha_checked}}"></radio>
+              <text class="fontButton">下沙</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_xinchang" checked="{{nanhui_xinchang_checked}}"></radio>
+              <text class="fontButton">新场</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_xingang" checked="{{nanhui_xingang_checked}}"></radio>
+              <text class="fontButton">新港</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_xuanqiao" checked="{{nanhui_xuanqiao_checked}}"></radio>
+              <text class="fontButton">宣桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_yancang" checked="{{nanhui_yancang_checked}}"></radio>
+              <text class="fontButton">盐仓</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_zhoupu" checked="{{nanhui_zhoupu_checked}}"></radio>
+              <text class="fontButton">周浦</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="zhuqiao" checked="{{nanhui_zhuqiao_checked}}"></radio>
+              <text class="fontButton">祝桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_luchaogang" checked="{{nanhui_luchaogang_checked}}"></radio>
+              <text class="fontButton">芦潮港</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{jiadingValue}}" class="radioPanel">
+        <!-- 嘉定中的radio -->
+        <radio-group class="BtnradioGroup" name="jiadingRadio" bindchange="jiadingChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_all" checked="{{jiading_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_anting" checked="{{jiading_anting_checked}}"></radio>
+              <text class="fontButton">安亭</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_fengbang" checked="{{jiading_fengbang_checked}}"></radio>
+              <text class="fontButton">封浜</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_huating" checked="{{jiading_huating_checked}}"></radio>
+              <text class="fontButton">华亭</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_jiangqiao" checked="{{jiading_jiangqiao_checked}}"></radio>
+              <text class="fontButton">江桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_loutang" checked="{{jiading_loutang_checked}}"></radio>
+              <text class="fontButton">娄塘</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_malu" checked="{{jiading_malu_checked}}"></radio>
+              <text class="fontButton">马陆</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_nanxiang" checked="{{jiading_nanxiang_checked}}"></radio>
+              <text class="fontButton">南翔</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_tanghang" checked="{{jiading_tanghang_checked}}"></radio>
+              <text class="fontButton">唐行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_taopu" checked="{{jiading_taopu_checked}}"></radio>
+              <text class="fontButton">桃浦</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_waigang" checked="{{jiading_waigang_checked}}"></radio>
+              <text class="fontButton">外冈</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_wangxin" checked="{{jiading_wangxin_checked}}"></radio>
+              <text class="fontButton">望新</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_zhenru" checked="{{jiading_zhenru_checked}}"></radio>
+              <text class="fontButton">真如</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_jiadingzhen" checked="{{jiading_jiadingzhen_checked}}"></radio>
+              <text class="fontButton">嘉定镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{baoshanValue}}" class="radioPanel">
+        <!-- 宝山中的radio -->
+        <radio-group class="BtnradioGroup" name="baoshanRadio" bindchange="baoshanChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_all" checked="{{baoshan_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_dachang" checked="{{baoshan_dachang_checked}}"></radio>
+              <text class="fontButton">大场</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_fengtang" checked="{{baoshan_fengtang_checked}}"></radio>
+              <text class="fontButton">葑塘</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_gucun" checked="{{baoshan_gucun_checked}}"></radio>
+              <text class="fontButton">顾村</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_liuhang" checked="{{baoshan_liuhang_checked}}"></radio>
+              <text class="fontButton">刘行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_jiangwan" checked="{{baoshan_jiangwan_checked}}"></radio>
+              <text class="fontButton">江湾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_luodian" checked="{{baoshan_luodian_checked}}"></radio>
+              <text class="fontButton">罗店</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_luojing" checked="{{baoshan_luojing_checked}}"></radio>
+              <text class="fontButton">罗泾</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_luonan" checked="{{baoshan_luonan_checked}}"></radio>
+              <text class="fontButton">罗南</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_miaohang" checked="{{baoshan_miaohang_checked}}"></radio>
+              <text class="fontButton">庙行</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_pengpu" checked="{{baoshan_pengpu_checked}}"></radio>
+              <text class="fontButton">彭浦</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_shengqiao" checked="{{baoshan_shengqiao_checked}}"></radio>
+              <text class="fontButton">盛桥</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_songnan" checked="{{baoshan_songnan_checked}}"></radio>
+              <text class="fontButton">淞南</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_wusong" checked="{{baoshan_wusong_checked}}"></radio>
+              <text class="fontButton">吴淞</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_wujiaochang" checked="{{baoshan_wujiaochang_checked}}"></radio>
+              <text class="fontButton">五角场</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_shuangcaodun" checked="{{baoshan_shuangcaodun_checked}}"></radio>
+              <text class="fontButton">霜草墩</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{chongmingValue}}" class="radioPanel">
+        <!-- 崇明中的radio -->
+        <radio-group class="BtnradioGroup" name="chongmingRadio" bindchange="chongmingChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chongming_all" checked="{{chongming_all_checked}}"></radio>
+              <text class="fontButton">全境</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chongming_chenjia" checked="{{chongming_chenjia_checked}}"></radio>
+              <text class="fontButton">陈家</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chongming_gangyan" checked="{{chongming_gangyan_checked}}"></radio>
+              <text class="fontButton">港沿</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 5px; margin-left: 5vw;"></view>
+    <!-- 作条分隔线 -->
+  </view>
+  <!-- 解决数据没有查询到 -->
+  <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 5px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+    <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+  </view>
+</view>
+<!-- 展开全部，反选全部，合拢全部的panel -->
+<view wx:if="{{showHideBtnPanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
+  <view class="showHideButton" style="margin-left: 5vw;" bindtap="showAll">
+    <text>全部展开</text>
+  </view>
+  <view class="showHideButton" bindtap="ReverseAll">
+    <text>全部反选</text>
+  </view>
+  <view class="showHideButton" style="margin-right: 5vw;" bindtap="hideAll">
+    <text>全部合拢</text>
+  </view>
+</view>
+<view class="body">
+  <view class="result" wx:for="{{list}}" wx:key="list" data-index="{{index}}" bindtap="simpleShow">
+    <!-- 搜索结果 -->
+    <view class="resultList">
+      <view class="titleAndPlace">
+        <!-- 标题和地点 -->
+        <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.vocabulary}}</text>
+        <text style="font-size: 12px; color: rgba(0, 0, 0, .50); " user-select="true">{{item.place}}</text>
+      </view>
+      <!-- 结果的正文部分 -->
+      <view wx:if="{{item.toggle == false}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+        <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">原条目</text>
+        <!-- 原条目标题 -->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.originalEntry}}</text>
+        <!-- 原条目内容 -->
+        <text class="titleAlign">释义</text>
+        <!-- 释义标题 -->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.explanation}}</text>
+        <!-- 释义内容 -->
+        <text class="titleAlign">出处</text>
+        <!-- 出处标题 -->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.source}}</text>
+        <!-- 出处内容 -->
+        <text class="titleAlign">拼音</text>
+        <!-- 拼音标题 -->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.pinYin}}</text>
+        <!-- 拼音内容 -->
+        <text class="titleAlign">例句</text>
+        <!-- 例句标题 -->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.example}}</text>
+        <!-- 例句内容 -->
+      </view>
+      <!-- 最后写上触底 -->
+    </view>
+  </view>
+  <view style="color: rgba(0, 0, 0, .50); padding-bottom: 50px; padding-top: 10px;">{{reachBottom}}</view>
+</view>

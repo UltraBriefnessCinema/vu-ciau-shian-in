@@ -1,0 +1,77 @@
+<!--Word-1.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="head">
+  <!--程序的头-->
+  <view class="input">
+    <!--搜索框-->
+    <icon type="search" size="25" style="padding-left: 7px;"></icon>
+    <input type="text" maxlength="9" placeholder="输入吴拼或汉字(支持多个汉字)" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+    <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+  </view>
+  <view class="searchButton" bindtap="enterInput">
+    <view style="display: flex; flex-direction: column; align-items: center; padding-top: 8px; padding-bottom: 12px;">查</view>
+  </view>
+</view>
+
+<!--两只radio-->
+<view class="middle" style="margin-left: 5vw;">
+  <radio-group name="type" bindchange="changeType">
+    <label>
+      <view class="radio">
+        <radio value="onDictionary" checked="true"></radio>
+        <text>查汉字</text>
+      </view>
+    </label>
+    <label>
+      <view class="radio">
+        <radio value="onPinYin"></radio>
+        <text>查吴拼</text>
+      </view>
+    </label>
+  </radio-group>
+</view>
+
+<!--解决数据没有查询到-->
+<view style="display: flex; justify-content: flex-start; margin-top: 10px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+  <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+</view>
+
+<!--展开全部，反选全部，合拢全部的panel-->
+<view wx:if="{{showHideBtnPanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+  <view class="showHideButton" style="margin-left: 5vw;" bindtap="showAll">
+    <text>展开全部</text>
+  </view>
+  <view class="showHideButton" bindtap="ReverseAll">
+    <text>反选全部</text>
+  </view>
+  <view class="showHideButton" style="margin-right: 5vw;" bindtap="hideAll">
+    <text>合拢全部</text>
+  </view>
+</view>
+
+<view class="body">
+  <view class="result" wx:for="{{list}}" wx:key="list">
+    <!--框-->
+    <view data-index="{{index}}" bindtap="simpleShow">
+      <!--标题栏的两个组件-->
+      <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.word}}</text>
+      <text style="font-size: 12px; color: rgba(0, 0, 0, .50); padding-left: 3px;" user-select="true">{{item.where}}</text>
+      <view style="display: flex; flex-direction: column;">  <!--拼音标题-->
+        <text class="contentTitle">拼音</text>
+        <text class="contentContent" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;" user-select="true">{{item.pinYin}}</text>  <!--拼音内容-->
+      </view>
+    </view>
+    <view wx:if="{{item.toggle == true}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+      <text class="contentTitle">释义</text>
+      <!--释义标题-->
+      <text class="contentContent" user-select="true">{{item.mean}}</text>
+      <!--释义内容-->
+      <text class="contentTitle">语音</text>
+      <!--语音标题-->
+      <text class="contentContent" user-select="true">{{item.Pronunciation}}</text>
+      <!--语音内容-->
+    </view>
+  </view>
+</view>
+<view style="color: rgba(0, 0, 0, .50); padding-bottom: 50px; padding-top: 10px; text-align: center;">{{reachBottom}}</view>

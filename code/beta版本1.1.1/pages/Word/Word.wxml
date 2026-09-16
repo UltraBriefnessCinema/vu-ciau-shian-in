@@ -1,0 +1,36 @@
+<!--Word.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="/systemImage/logo.png" mode="widthFix"></image>
+    <text style="font-size: 19px; margin-bottom: 16px; font-weight: bold;">字音查询</text>
+    <navigator url="/pages/Word-1/Word-1">
+      <view class="unrealInput">
+        <!--点进此搜索框进入二级菜单-->
+        <icon type="search" size="25"></icon>
+        <view style="padding-left: 4px;">输入吴拼或汉字(支持多个汉字)</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view style="display: flex; flex-direction: row; align-items: center; margin-top: 5vw; margin-bottom: 2vw;">  <!--功能集的文字和两只眼睛图标-->
+  <image wx:if="{{isShow}}" src="/icon/08_eyeOff.svg" mode="widthFix" class="iconSize" style="margin-left: 5vw;" bindtap="advanceSearchBtn"></image>
+  <image wx:else="{{isShow}}" src="/icon/07_eyeOn.svg" mode="widthFix" class="iconSize" style="margin-left: 5vw;" bindtap="advanceOnSearchBtn"></image>
+  <text style="display: flex; flex-direction: row; align-self: flex-start; margin-left: 10px; font-size: 20px; font-weight: bold; ">功能集</text>
+</view>
+
+<!--下面是导航到变调生成部分-->
+<view class="features" wx:if="{{featuresArea}}">
+  <view class="toneGenerationOuter">
+    <navigator url="/pages/ToneGeneration/ToneGeneration">
+      <view class="toneGenerationInter">
+        <text style="font-size: 18px; font-weight: bold;">变调生成器(alpha)</text>
+        <view style="width: 50vw; border-top: 1px solid #979797; margin-top: 5px; "></view>   <!--分隔线-->
+        <text style="font-size: 16px; padding-top: 5px; color: rgba(0,0,0,0.5);">通过某字变调生成某地多字连续变调</text>
+      </view>
+    </navigator>
+  </view>
+</view>

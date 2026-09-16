@@ -1,0 +1,67 @@
+<!--Word.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view>
+  <view class="content">
+    <!--内容部分-->
+    <navigator url="/pages/Word-1/Word-1">
+      <view class="unrealInput">
+        <!--点进此搜索框进入二级菜单-->
+        <icon type="search" size="25"></icon>
+        <view style="padding-left: 4px; font-size: 16px;">输入汉字或吴拼(支持多个汉字)</view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<!--随机跳字界面-->
+<view style="margin-top: 10px;">
+  <view style="display: flex; flex-direction: row; align-items: center; margin-left: 5%;">
+    <!--随机跳字这个界面-->
+    <image wx:if="{{eyeOn}}" src="/icon/07_eyeOn.svg" mode="widthFix" style="width: 30px; " bindtap="turnEyeOn"></image>
+    <!--控制消失隐藏的眼睛-->
+    <image wx:if="{{eyeOff}}" src="/icon/08_eyeOff.svg" mode="widthFix" style="width: 30px;" bindtap="turnEyeOff"></image>
+    <text style="font-size: 20px; font-weight: bold; margin-left: 10px;">随机跳字</text>
+    <image wx:if="{{refresh}}" src="/icon/11_refresh.svg" mode="widthFix" class="refresh" bindtap="refresh"></image>
+    <!--控制换一换的按钮-->
+  </view>
+
+  <view wx:if="{{showHidePanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 10px;">
+    <!--三个按钮-->
+    <view class="button_Surface" style="margin-left: 5%;" bindtap="showAll">
+      <!--全部展开按钮-->
+      <text>全部展开</text>
+    </view>
+    <view class="button_Surface" bindtap="reverseAll">
+      <!--全部反选按钮-->
+      <text>全部反选</text>
+    </view>
+    <view class="button_Surface" style="margin-right: 5%;" bindtap="hideAll">
+      <!--全部合拢按钮-->
+      <text>全部合拢</text>
+    </view>
+  </view>
+</view>
+
+<!--单字卡片界面-->
+<view style="display: flex; flex-direction: row;flex-wrap: wrap; justify-content: center;">
+  <view wx:if="{{randomWord}}" wx:key="list" wx:for="{{mainList}}" class="cardSurface">
+    <view data-index="{{index}}" bindtap="simpleShow">
+      <!--标题栏两个组件-->
+      <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.word}}</text>
+      <text style="font-size: 12px; color: rgba(0, 0, 0, .50); padding-left: 3px;" user-select="true">{{item.where}}</text>
+      <view style="display: flex; flex-direction: column;">
+        <!--拼音标题-->
+        <text class="contentTitle">拼音</text>
+        <text class="contentContent" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;" user-select="true">{{item.pinYin}}</text>
+      </view>
+    </view>
+    <view class="showContent" wx:if="{{item.toggle == true}}">
+      <!--可隐藏的几个组件-->
+      <text class="contentTitle">释义</text>
+      <text class="contentContent" user-select="true">{{item.mean}}</text>
+      <text class="contentTitle">语音</text>
+      <text class="contentContent" user-select="true">{{item.Pronunciation}}</text>
+    </view>
+  </view>
+</view>

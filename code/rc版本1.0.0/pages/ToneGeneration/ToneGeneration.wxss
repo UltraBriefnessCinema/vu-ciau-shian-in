@@ -1,0 +1,155 @@
+/*Word.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 265px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 5vw;
+}
+
+.input input {
+  padding-left: 4px;
+  padding-right: 10px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+.searchButton {
+  width: 58px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+}
+  
+.searchButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.buttonStyle {
+  font-size: 12px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  padding-top: 3px; 
+  padding-bottom: 5px;
+}
+
+/*以下为锁定地区下的所有按钮class以及active*/
+.songjiang {
+  width: 33px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 5vw;
+  margin-top: 3px;
+}
+
+.fontButton {
+  font-size: 14px;
+}
+
+.radioGroupStyle {
+  display: flex; 
+  flex-direction: row;  
+  align-self: center;  
+  flex-wrap: wrap;  
+  justify-content: flex-start; 
+  margin-right: 10px;
+}
+
+.radioPanel {
+  width: 90vw; 
+  height: auto; 
+  background-color:white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  margin-left: 5vw; 
+  padding-top: 5px; 
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+.iconSize {  /*显示单字音调左边的眼睛样式*/
+  width: 30px;
+}
+
+.toneResultPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Tonebody {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.simpleToneResult {
+  width: 38vw;
+  height: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.multiToneResult {
+  width: 85vw;
+  height: auto;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.contentTitle{
+  padding-top: 8px; 
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.contentContent{
+  padding-top: 1px; 
+  font-size: 14px;
+}
+
+.searchContent_view_show{
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContent_view_hide {  /*内容页隐藏*/
+  display: None;
+}
+
+.radioLeftPosition{
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

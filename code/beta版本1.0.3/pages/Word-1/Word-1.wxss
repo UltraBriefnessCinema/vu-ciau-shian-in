@@ -1,0 +1,77 @@
+/*Word-1.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 88.7vw;
+  height: 40px;
+  border: 1px solid #979797;
+  border-radius: 6px;
+}
+
+.input input {
+  padding-left: 4px;
+  padding-right: 10px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.radio {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  justify-content: flex-start; 
+  margin-top: 10px;
+}
+
+.result {
+  width: 38vw;
+  height: auto;
+  border: 1px solid #979797;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+
+.searchContent_view_show{
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContent_view_hide {  /*内容页隐藏*/
+  display: None;
+}
+
+.contentTitle{
+  padding-top: 8px; 
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+.contentContent{
+  padding-top: 1px; 
+  font-size: 14px;
+}
+

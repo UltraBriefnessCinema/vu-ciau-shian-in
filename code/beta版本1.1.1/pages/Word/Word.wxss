@@ -1,0 +1,58 @@
+/*Word.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.content {  /*“内容“的父级*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vw;
+}
+
+.content image {  /*图片样式*/
+  width: 228rpx;
+  height: 228rpx;
+  margin-bottom: 17.06rpx;
+}
+
+.unrealInput {  /*要进入二级菜单的搜索框样式*/
+  width: 88.7vw;
+  height: 40px;
+  border-radius: 6px;
+  padding-left: 7px;
+  display: flex; 
+  align-items: center; 
+  flex-direction: row; 
+  color: rgba(0, 0, 0, 0.5);
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.features{  /*功能集文字的总样式*/
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+}
+
+.iconSize {  /*功能集右边的眼睛样式*/
+  width: 30px;
+}
+
+.toneGenerationOuter {  /*变调生成器功能的父级*/
+  width: 90vw;
+  height: 75px;
+  margin-top: 5px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.toneGenerationInter{   /*变调生成器功能的子级*/
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  padding-top: 10px; 
+  padding-bottom: 10px; 
+  padding-left: 5vw; 
+  padding-right: 5vw; 
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}

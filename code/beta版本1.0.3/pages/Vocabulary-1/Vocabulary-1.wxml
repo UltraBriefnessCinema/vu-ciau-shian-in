@@ -1,0 +1,80 @@
+<!--Vocabulary-1.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view>
+  <view class="head">
+    <view class="input">
+      <!--搜索框-->
+      <icon type="search" size="25" style="padding-left: 7px;"></icon>
+      <input type="text" placeholder="输入词汇" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+      <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+    </view>
+  </view>
+
+  <!--三只radio-->
+  <view style="margin-left: 5vw;">
+    <radio-group name="type" bindchange="changeType">
+      <label>
+        <view class="radio">
+          <radio value="onVocabularyKnown" checked="true"></radio>
+          <text>查词条(推荐写法)</text>
+        </view>
+      </label>
+      <label>
+        <view class="radio">
+          <radio value="onVocabularyUnKnown"></radio>
+          <text>查词条(其他写法)</text>
+        </view>
+      </label>
+      <label>
+        <view class="radio">
+          <radio value="onMean"></radio>
+          <text>查释义</text>
+        </view>
+      </label>
+    </radio-group>
+  </view>
+
+  <!--解决数据没有查询到-->
+  <view style="display: flex; flex-direction: row; justify-content: flex-start; margin-top: 10px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+    <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+  </view>
+</view>
+
+<view class="body">
+  <view class="result" wx:for="{{list}}" wx:key="list">
+    <!--搜索结果-->
+    <view class="resultList">
+      <view class="titleAndPlace" data-index="{{index}}" bindtap="simpleShow">
+        <!--标题和地点-->
+        <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.vocabulary}}</text>
+        <text style="font-size: 12px; color: rgba(0, 0, 0, .50); " user-select="true">{{item.place}}</text>
+      </view>
+      <!--结果的正文部分-->
+      <view wx:if="{{item.toggle == true}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+        <text style="font-size: 16px; font-weight: bold; padding-top: 7px;">原条目</text>
+        <!--原条目标题-->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.originalEntry}} </text>
+        <!--原条目内容-->
+        <text class="titleAlign">释义</text>
+        <!--释义标题-->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.explanation}}</text>
+        <!--释义内容-->
+        <text class="titleAlign">出处</text>
+        <!--出处标题-->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.source}}</text>
+        <!--出处内容-->
+        <text class="titleAlign">拼音</text>
+        <!--拼音标题-->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" style="font-family: 'Times New Roman', Times, serif;" user-select="true">{{item.pinYin}}</text>
+        <!--拼音内容-->
+        <text class="titleAlign">例句</text>
+        <!--例句标题-->
+        <text style="font-family: 'Times New Roman', Times, serif;" class="titleContent" user-select="true">{{item.example}}</text>
+        <!--例句内容-->
+      </view>
+      <!--最后写上触底-->
+    </view>
+  </view>
+<view style="color: rgba(0, 0, 0, .50); padding-bottom: 50px; padding-top: 10px;">{{reachBottom}}</view>
+</view>

@@ -1,0 +1,251 @@
+<!--Word-1.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="head">
+  <!--程序的头-->
+  <view class="input">
+    <!--搜索框-->
+    <icon type="search" size="25" style="padding-left: 7px;"></icon>
+    <input type="text" maxlength="9" placeholder="输入吴拼或汉字(支持多个汉字)" confirm-type="search" bindinput="getInput" value="{{val}}" bindconfirm="enterInput" />
+    <icon type="clear" size="25" style="padding-right: 7px;" wx:if="{{isClear}}" bindtap="clearTap"></icon>
+  </view>
+  <view class="searchButton" bindtap="enterInput">
+    <view style="display: flex; flex-direction: column; align-items: center; padding-top: 8px; padding-bottom: 12px;">查</view>
+  </view>
+</view>
+
+<!--两只radio-->
+<view class="middle">
+  <radio-group name="type" bindchange="changeType" style="display: flex; flex-direction: row; justify-content: space-around;">
+    <label>
+      <view class="radio">
+        <radio value="onDictionary" checked="true"></radio>
+        <view>查汉字</view>
+      </view>
+    </label>
+    <label>
+      <view class="radio">
+        <radio value="onPinYin"></radio>
+        <view>查吴拼</view>
+      </view>
+    </label>
+  </radio-group>
+</view>
+
+<view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 10px; margin-left: 5vw;"></view>
+<!-- 作条分隔线 -->
+
+<view>
+    <view>
+      <!-- 高级搜索1_锁定地区 -->
+      <view>
+        <!-- 锁定地区字样 -->
+        <view style="margin-left: 5vw; margin-top: 5px; display: flex; flex-direction: row; align-items: center;">
+          <text style="font-size: 16px; font-weight: bold;">锁定搜索</text>
+          <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{countyName}}</text>
+          <text style="color: rgba(0, 0, 0, .50); font-weight: bold;">{{townName}}</text>
+        </view>
+      </view>
+      <!-- 以下是省级按钮 -->
+      <view style="display: flex; flex-direction: row; flex-wrap: wrap; margin-left: 5vw; margin-right: 5vw;">
+        <view class="shanghaiAll" bindtap="shanghaiAllBtn">
+          <!-- 上海全境按钮 -->
+          <text class="buttonStyle">上海全境</text>
+        </view>
+        <view class="shanghaiShi" bindtap="shanghaiShiBtn">
+          <!-- 上海市区按钮 -->
+          <text class="buttonStyle">上海市区</text>
+        </view>
+        <view class="songjiang" bindtap="songjiangBtn">
+          <!-- 松江按钮 -->
+          <text class="buttonStyle">松江</text>
+        </view>
+        <view class="qingpu" bindtap="qingpuBtn">
+          <!-- 青浦按钮 -->
+          <text class="buttonStyle">青浦</text>
+        </view>
+        <view class="fengxian" bindtap="fengxianBtn">
+          <!-- 奉贤按钮 -->
+          <text class="buttonStyle">奉贤</text>
+        </view>
+        <view class="chuansha" bindtap="chuanshaBtn">
+          <!-- 川沙按钮 -->
+          <text class="buttonStyle">川沙</text>
+        </view>
+        <view class="nanhui" bindtap="nanhuiBtn">
+          <!-- 南汇按钮 -->
+          <text class="buttonStyle">南汇</text>
+        </view>
+        <view class="jiading" bindtap="jiadingBtn">
+          <!-- 嘉定按钮 -->
+          <text class="buttonStyle">嘉定</text>
+        </view>
+        <view class="baoshan" bindtap="baoshanBtn">
+          <!-- 宝山按钮 -->
+          <text class="buttonStyle">宝山</text>
+        </view>
+        <view class="chongming" bindtap="chongmingBtn">
+          <!-- 崇明按钮 -->
+          <text class="buttonStyle">崇明</text>
+        </view>
+      </view>
+      <!-- 以下是所有按钮中的radio -->
+      <view wx:if="{{shanghaiShiValue}}" class="radioPanel">
+        <!-- 上海市区中的radio -->
+        <radio-group style="display: flex; flex-direction: row;  align-self: center;  flex-wrap: wrap;  justify-content: flex-start; margin-right: 10px;" name="shanghaiShiRadio" bindchange="shanghaiShiChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_nanshi" checked="{{shanghaishi_nanshi_checked}}"></radio>
+              <text class="fontButton">南市</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="shanghaishi_nanshi_xin" checked="{{shanghaishi_nanshi_xin_checked}}"></radio>
+              <text class="fontButton">(市区中新派)</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{songjiangValue}}" class="radioPanel">
+        <!-- 松江中的radio -->
+        <radio-group class="BtnradioGroup" name="songjiangRadio" bindchange="songjiangChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="songjiang_songjiangzhen" checked="{{songjiang_songjiangzhen_checked}}"></radio>
+              <text class="fontButton">松江镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{qingpuValue}}" class="radioPanel">
+        <!-- 青浦中的radio -->
+        <radio-group class="BtnradioGroup" name="qingpuRadio" bindchange="qingpuChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="qingpu_qingpuzhen" checked="{{qingpu_qingpuzhen_checked}}"></radio>
+              <text class="fontButton">青浦镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{fengxianValue}}" class="radioPanel">
+        <!-- 奉贤中的radio -->
+        <radio-group class="BtnradioGroup" name="fengxianRadio" bindchange="fengxianChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="fengxian_nanqiao" checked="{{fengxian_nanqiao_checked}}"></radio>
+              <text class="fontButton">南桥</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{chuanshaValue}}" class="radioPanel">
+        <!-- 川沙中的radio -->
+        <radio-group class="BtnradioGroup" name="chuanshaRadio" bindchange="chuanshaChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chuansha_chuanshazhen" checked="{{chuansha_chuanshazhen_checked}}"></radio>
+              <text class="fontButton">川沙镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{nanhuiValue}}" class="radioPanel">
+        <!-- 南汇中的radio -->
+        <radio-group class="BtnradioGroup" name="nanhuiRadio" bindchange="nanhuiChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="nanhui_zhoupu" checked="{{nanhui_zhoupu_checked}}"></radio>
+              <text class="fontButton">周浦</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{jiadingValue}}" class="radioPanel">
+        <!-- 嘉定中的radio -->
+        <radio-group class="BtnradioGroup" name="jiadingRadio" bindchange="jiadingChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_zhenru" checked="{{jiading_zhenru_checked}}"></radio>
+              <text class="fontButton">真如</text>
+            </view>
+          </label>
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="jiading_jiadingzhen" checked="{{jiading_jiadingzhen_checked}}"></radio>
+              <text class="fontButton">嘉定镇</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{baoshanValue}}" class="radioPanel">
+        <!-- 宝山中的radio -->
+        <radio-group class="BtnradioGroup" name="baoshanRadio" bindchange="baoshanChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="baoshan_luojing" checked="{{baoshan_luojing_checked}}"></radio>
+              <text class="fontButton">罗泾</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+      <view wx:if="{{chongmingValue}}" class="radioPanel">
+        <!-- 崇明中的radio -->
+        <radio-group class="BtnradioGroup" name="chongmingRadio" bindchange="chongmingChange">
+          <label>
+            <view class="radioLeftPosition">
+              <radio value="chongming_chenqiao" checked="{{chongming_chenqiao_checked}}"></radio>
+              <text class="fontButton">城桥</text>
+            </view>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view style="width: 88.7vw; border-top: 1px solid #979797; margin-top: 5px; margin-left: 5vw;"></view>
+    <!-- 作条分隔线 -->
+</view>
+
+<!--解决数据没有查询到-->
+<view style="display: flex; justify-content: flex-start; margin-top: 5px; margin-left: 5vw;" wx:for="{{noData}}" wx:key="NODATA">
+  <text style="color: rgba(0, 0, 0, .50);">{{item}}</text>
+</view>
+
+<!--展开全部，反选全部，合拢全部的panel-->
+<view wx:if="{{showHideBtnPanel}}" style="display: flex; flex-direction: row; justify-content: space-between; margin-top: 5px;">
+  <view class="showHideButton" style="margin-left: 5vw;" bindtap="showAll">
+    <text>全部展开</text>
+  </view>
+  <view class="showHideButton" bindtap="ReverseAll">
+    <text>全部反选</text>
+  </view>
+  <view class="showHideButton" style="margin-right: 5vw;" bindtap="hideAll">
+    <text>全部合拢</text>
+  </view>
+</view>
+
+<view class="body">
+  <view class="result" wx:for="{{list}}" wx:key="list">
+    <!--框-->
+    <view data-index="{{index}}" bindtap="simpleShow">
+      <!--标题栏的两个组件-->
+      <text style="font-size: 21px; font-weight: bold;" user-select="true">{{item.word}}</text>
+      <text style="font-size: 12px; color: rgba(0, 0, 0, .50); padding-left: 3px;" user-select="true">{{item.where}}</text>
+      <view style="display: flex; flex-direction: column;">  <!--拼音标题-->
+        <text class="contentTitle">拼音</text>
+        <text class="contentContent" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;" user-select="true">{{item.pinYin}}</text>  <!--拼音内容-->
+      </view>
+    </view>
+    <view wx:if="{{item.toggle == true}}" class="{{showContent?'searchContent_view_show':'searchContent_view_hide'}}">
+      <text class="contentTitle">释义</text>
+      <!--释义标题-->
+      <text class="contentContent" user-select="true">{{item.mean}}</text>
+      <!--释义内容-->
+      <text class="contentTitle">语音</text>
+      <!--语音标题-->
+      <text class="contentContent" user-select="true">{{item.Pronunciation}}</text>
+      <!--语音内容-->
+    </view>
+  </view>
+</view>
+<view style="color: rgba(0, 0, 0, .50); padding-bottom: 50px; padding-top: 10px; text-align: center;">{{reachBottom}}</view>

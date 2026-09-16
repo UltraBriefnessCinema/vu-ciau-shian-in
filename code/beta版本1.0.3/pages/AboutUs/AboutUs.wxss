@@ -1,0 +1,28 @@
+/*Aboutus.wxss*/
+/*written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China*/
+
+.content {  /*the parent element of the content*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content image {  /*image*/
+  width: 240rpx;
+  height: 240rpx;
+  margin-top: 10%;
+  margin-bottom: 9.53px;
+}
+
+.aboutUs {
+  margin-bottom: 32px;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.content-text {
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 5px;
+  line-height: 20px;
+}

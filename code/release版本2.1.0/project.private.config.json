@@ -1,0 +1,8 @@
+{
+  "projectname": "release%E7%89%88%E6%9C%AC2.0.0",
+  "setting": {
+    "compileHotReLoad": true
+  },
+  "description": "Project configuration file, more information: https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.23.4"
+}

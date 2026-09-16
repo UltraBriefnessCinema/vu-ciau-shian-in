@@ -1,0 +1,360 @@
+/* pages/Jielong/Jielong.wxss */
+.button_12_Surface{  /*12个县级按钮的表面*/
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  padding: 1px 8px 1px 8px;
+}
+
+.button_12_Surface :active{
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px; 
+}
+
+.fontButton {
+  font-size: 14px;
+}
+
+.radioPanel {
+  width: 90vw; 
+  height: auto; 
+  background-color:white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  margin-left: 5vw; 
+  padding-top: 5px; 
+  padding-bottom: 5px;
+  margin-top: 5px;
+}
+
+.BtnradioGroup{
+  display: flex; 
+  flex-direction: row; 
+  align-self: center;  
+  flex-wrap: wrap; 
+  justify-content: flex-start; 
+  margin-left: 5px;
+}
+
+.radioLeftPosition{
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/*以下为高级搜索>锁定地区下的所有按钮class以及active*/
+.shanghaiAll {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 3px;
+}
+
+.shanghaiAll :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.shanghaiShi {
+  width: 65px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.shanghaiShi :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.shanghaiXian {
+  width: 52px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.shanghaiXian :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.songjiang {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.songjiang :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jinshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jinshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.qingpu {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.qingpu :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.fengxian {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.fengxian :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chuansha {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chuansha :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.nanhui {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.nanhui :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.jiading {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.jiading :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.baoshan {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.baoshan :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.chongming {
+  width: 40px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.chongming :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.comprehensive {
+  width: 112px;
+  height: 24px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+.comprehensive :active {
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.buttonStyle{
+  font-size: 12px; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  padding-top: 4px; 
+  padding-bottom: 4px;
+}
+
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 5vw;
+  margin-top: 10px;
+}
+
+.input input {
+  padding-left: 4px;
+  padding-right: 10px;
+  width: 80vw;
+  height: 40px;
+  font-size: 16px;
+}
+
+.fontsize10 {
+  font-size: 10px;
+}
+
+.fontsize16{
+  font-size: 16px;
+}
+
+.showHideButton{
+  background-color: white;
+  padding: 4px 4vw 4px 4vw;
+  border-radius: 6px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.showHideButton :active{
+  background-color: rgba(0, 0, 0, 5%);
+  border-radius: 6px;
+}
+
+.focusViewInternal{
+  margin-left: 5vw;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+.titleAlign {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+}
+
+.result {
+  padding-bottom: 10px;
+  margin-top: 5px;
+  width: 88.7vw;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-left: 5vw;
+}
+
+.resultList {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.titleAndPlace {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.focusView {
+  width: 75%; 
+  height: 120px; 
+  background-color: white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 5vw; 
+  margin-top: 5px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.focusViewInternal :active {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.tsiqLonButton {
+  text-align: center;
+  width: 20%; 
+  background-color: white; 
+  border-radius: 6px; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); 
+  padding: 0.7%;
+  margin-top: 5px;
+  margin-left: 1%;
+}
+
+.tsiqLonButton :active {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.1);
+}

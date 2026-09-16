@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/Word/Word",
+        "pages/Word-1/Word-1",
+        "pages/Vocabulary/Vocabulary",
+        "pages/Vocabulary-1/Vocabulary-1",
+        "pages/AboutUs/AboutUs",
+        "pages/ToneGeneration/ToneGeneration"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "沪郊乡音辞典",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "backgroundColor": "#ffffff",
+        "color": "#CACACA",
+        "selectedColor": "#2cb748",
+        "list": [
+            {
+                "pagePath": "pages/Word/Word",
+                "text": "字音",
+                "iconPath": "icon/01_Word.png",
+                "selectedIconPath": "icon/02_OnWord.png"
+            },{
+                "pagePath": "pages/Vocabulary/Vocabulary",
+                "text": "词条",
+                "iconPath": "icon/03_Vocabulary.png",
+                "selectedIconPath": "icon/04_OnVocabulary.png"
+            },{
+                "pagePath": "pages/AboutUs/AboutUs",
+                "text": "关于我们",
+                "iconPath": "icon/05_AboutUs.png",
+                "selectedIconPath": "icon/06_OnAboutUs.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai-->
+<!--release 2022, 2 ,March-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="../../systemImage/logo.png" mode="widthFix"></image>
+    <text>词汇查询</text>
+    <view class="input">
+      <input type="text" placeholder="输入词汇" confirm-type="search" />
+    </view>
+
+    <view class="Select">
+      <view class="RadioContent">
+        <radio></radio>
+        <text>查词条</text>
+      </view>
+      <view class="RadioContent">
+        <radio></radio>
+        <text>查释义</text>
+      </view>
+    </view>
+
+  </view>
+</view>

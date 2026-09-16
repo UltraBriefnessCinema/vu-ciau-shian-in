@@ -1,0 +1,17 @@
+<!--Vocabulary.wxml-->
+<!--written by Mr.Gao in Xiaokunshan, Songjiang, Shanghai, China-->
+
+<view class="body">
+  <view class="content">
+    <!--内容部分-->
+    <image src="../../systemImage/logo.png" mode="widthFix"></image>
+    <text style="font-size: 19px; margin-bottom: 16px;">词汇查询</text>
+    <navigator url="/pages/Vocabulary-1/Vocabulary-1">
+      <view class="unrealInput">
+        <!--点进此搜索框进入二级菜单-->
+        <icon type="search" size="25"></icon>
+        <view style="padding-left: 4px;">输入词汇</view>
+      </view>
+    </navigator>
+  </view>
+</view>

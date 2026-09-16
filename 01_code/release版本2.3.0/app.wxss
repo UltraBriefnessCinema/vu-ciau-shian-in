@@ -1,5 +1,0 @@
-/* app.wxss */
-page {
-  background-color: #f3f3f3;
-  font-family: 'chFont', -apple-system, BlinkMacSystemFont, sans-serif;
-}

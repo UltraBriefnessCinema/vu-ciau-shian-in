@@ -1,0 +1,119 @@
+<!--AboutUs.wxml-->
+<view class="body">
+    <view class="content">
+      <view class="font-download-btn" bindtap="downloadFont">
+      <text>下载字体</text>
+    </view>
+      <view class="font-actions">
+      <view class="font-btn" bindtap="handleDownloadFont">{{fontBtnText}}</view>
+      <view wx:if="{{fontExists}}" class="font-btn delete" bindtap="handleDeleteFont">删除字体</view>
+    </view>
+    <image src="/systemImage/aboutUs.jpg" mode="widthFix" style="width: 100%;"></image>
+    <view style="display: flex; flex-direction: column; align-items: center; position: absolute; top: 20vh;">
+      <image src="/systemImage/logo.png" mode="widthFix" style="width: 25vw;"></image>
+      <text class="aboutUs">微信公众号：沪郊乡音</text>
+    </view>
+
+    <view style="position: absolute; top: 43%; width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <view style="display: flex; flex-direction: row; width: 90vw; justify-content: space-between;">
+        <view class="showHideButton" bindtap="showAll"><view>展开全部</view></view>
+        <view class="showHideButton" bindtap="ReverseAll"><view>反选全部</view></view>
+        <view class="showHideButton" bindtap="hideAll"><view>合拢全部</view></view>
+      </view>
+
+      <scroll-view scroll-y="true">
+        <view class="content" style="margin-top: 5px;">
+
+          <!-- 小程序版本（单行文本，无嵌套） -->
+          <view class="cardStyle" bindtap="versionButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center">小程序版本</view>
+            <view wx:if="{{versionArea}}" class="content-text">
+              <text user-select="true">2.3.0</text>
+            </view>
+          </view>
+
+          <!-- 小程序简介 -->
+          <view class="cardStyle" bindtap="introduceButton" style="margin-top: 5px;">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">小程序简介</view>
+            <view wx:if="{{introduceArea}}" wx:for="{{introduceList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 录入整理 -->
+          <view class="cardStyle" bindtap="inputButton" style="margin-top: 5px;">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">录入整理</view>
+            <view wx:if="{{inputArea}}" wx:for="{{inputSortList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 造字人员 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="fontMakerButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">造字人员</view>
+            <view wx:if="{{fontMakerArea}}" wx:for="{{fontMakerList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 字表发音 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="pronunciationButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">字表发音</view>
+            <view wx:if="{{pronunciationArea}}" wx:for="{{pronuncationList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 界面设计 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="uiDesignButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">界面设计</view>
+            <view wx:if="{{uiDesignArea}}" wx:for="{{UiDesignList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 程序制作 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="programMakerButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">程序制作</view>
+            <view wx:if="{{programMakerArea}}" wx:for="{{programMakerList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 特别感谢 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="AcknowledgeButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">特别感谢</view>
+            <view wx:if="{{AcknowledgeArea}}" wx:for="{{AcknowledgeList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 参考文献 -->
+          <view class="cardStyle" style="margin-top: 5px;" bindtap="ChronicleButton">
+            <view style="font-size: 19px; font-weight: bold; text-align: center;">参考文献</view>
+            <view wx:if="{{ChronicleArea}}" wx:for="{{ChronicleList}}" wx:key="index" class="list-item content-text">
+              <view wx:for="{{item.paragraphs}}" wx:key="pIndex" wx:for-item="para" class="list-para">
+                <text user-select="true">{{para}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
